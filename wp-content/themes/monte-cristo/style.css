@@ -1,48 +1,11 @@
 /*
-Theme Name: Kayak
-Author: savvoff(front) + dnshulga(back)
-Author URI: http://t.me/savvoff
-Description: Corporate site
+Theme Name: Monte Cristo Theme
+Author: savvoff
+Author URI: https://www.webdesign-sopelnik.de/
+Description: Restaurant Website
 Version: 2021.1
 */
 
 #wpadminbar {
-	visibility: visible;
-}
-#topcontrol {
-  z-index: 1020;
-}
-@media screen and (max-width: 36rem) {
-  #topcontrol {
-    visibility: hidden;
-  }
-}
-.single-product article p {
-	margin: 0 0 10px;
-	max-width: 100%;
-}
-.btn-clear, ul a[data-modal] {
-	cursor: pointer;
-}
-.simple-modal p.status {
-	text-align: center;
-}
-
-
-.kama_breadcrumbs {
-  display: flex;
-  justify-content: center;
-  color: #2291e8;
-  /* hide */
-  position: absolute;
-  visibility: hidden;
-}
-
-.kama_breadcrumbs .kb_sep {
-  margin: 0 5px;
-}
-
-.kama_breadcrumbs span {
-  position: relative;
-  z-index: 9999;
+	visibility: hidden;
 }

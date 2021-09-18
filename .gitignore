@@ -15,7 +15,7 @@ tfm
 
 # production
 # dist
-config.php
+wp-config.php
 storage/cache
 storage/session
 

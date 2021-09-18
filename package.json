@@ -1,7 +1,7 @@
 {
   "name": "monte-cristo",
   "version": "1.0.0",
-  "description": "Restaurant Websites",
+  "description": "Restaurant Website",
   "main": "gulpfile.babel.js",
   "scripts": {
     "dev": "gulp",
