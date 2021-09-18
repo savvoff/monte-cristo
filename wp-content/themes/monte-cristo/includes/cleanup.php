@@ -13,11 +13,12 @@ if (!function_exists('wp_start_cleanup')) {
 }
 
 // Theme editor
-function disable_mytheme_action()
+function disable_mytheme_actions()
 {
   define('DISALLOW_FILE_EDIT', true);
+  // define('EMPTY_TRASH_DAYS', false);
 }
-add_action('init', 'disable_mytheme_action');
+add_action('init', 'disable_mytheme_actions');
 
 // Clean up head.
 

@@ -1,5 +1,5 @@
 <?php
-  get_header(); 
+  get_header();
 ?>
 
 <section class="page-section py-4">
@@ -14,7 +14,7 @@
         </div>
         <div class="row">
           <article class="col">
-            <?php 
+            <?php
               while (have_posts()) : the_post();
                 the_content();
               endwhile;
@@ -26,29 +26,6 @@
   </div>
 </section>
 
-<?php 
-
-  $services = get_posts([
-    'post_type'       => 'service',
-    'posts_per_page'  => -1
-  ]);
-
-  $blocks = [];
-
-  foreach ($services as $post) : setup_postdata($post);
-    $block = [
-      'title' => get_the_title(),
-      'img'   => get_the_post_thumbnail_url(get_the_ID(), 'medium'),
-      'url'   => get_the_permalink()
-    ];
-    array_push($blocks, $block);
-  endforeach;
-  wp_reset_postdata();
-
-  get_page_part('/page-parts/part-services', array(
-    'title' => 'Услуги', 
-    'blocks' => $blocks
-  ));
-
-  get_footer(); 
+<?php
+  get_footer();
 ?>

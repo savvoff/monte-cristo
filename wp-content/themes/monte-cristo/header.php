@@ -9,17 +9,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta name="facebook-domain-verification" content="nmudqu4jhv8ftb7mw1v1btajrlz811" />
   <title><?php wp_title() ?></title>
-  <link rel="shortcut icon" href="<?php echo KAYAK_URI; ?>/dist/img/favicons/favicon.ico" type="image/x-icon">
-  <link rel="icon" sizes="16x16" href="<?php echo KAYAK_URI; ?>/dist/img/favicons/favicon-16x16.png" type="image/png">
-  <link rel="icon" sizes="32x32" href="<?php echo KAYAK_URI; ?>/dist/img/favicons/favicon-32x32.png" type="image/png">
-  <link rel="apple-touch-icon-precomposed" href="<?php echo KAYAK_URI; ?>/dist/img/favicons/apple-touch-icon-precomposed.png">
-  <link rel="apple-touch-icon" href="<?php echo KAYAK_URI; ?>/dist/img/favicons/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="57x57" href="<?php echo KAYAK_URI; ?>/dist/img/favicons/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="<?php echo KAYAK_URI; ?>/dist/img/favicons/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="<?php echo KAYAK_URI; ?>/dist/img/favicons/apple-touch-icon-72x72.png">
+  <link rel="shortcut icon" href="<?php echo MC_URI; ?>/dist/img/favicons/favicon.ico" type="image/x-icon">
+  <link rel="icon" sizes="16x16" href="<?php echo MC_URI; ?>/dist/img/favicons/favicon-16x16.png" type="image/png">
+  <link rel="icon" sizes="32x32" href="<?php echo MC_URI; ?>/dist/img/favicons/favicon-32x32.png" type="image/png">
+  <link rel="apple-touch-icon-precomposed" href="<?php echo MC_URI; ?>/dist/img/favicons/apple-touch-icon-precomposed.png">
+  <link rel="apple-touch-icon" href="<?php echo MC_URI; ?>/dist/img/favicons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="<?php echo MC_URI; ?>/dist/img/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="<?php echo MC_URI; ?>/dist/img/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="<?php echo MC_URI; ?>/dist/img/favicons/apple-touch-icon-72x72.png">
   <?php wp_head(); ?>
   <script>
-    var themePath = '<?php echo KAYAK_URI; ?>';
+    var themePath = '<?php echo MC_URI; ?>';
   </script>
   <noscript>
     <style>
@@ -35,13 +35,7 @@
 <!-- Sprite -->
 <div id="svg-sprites" style="width: 0; height: 0; visibility: hidden;"></div>
 <!-- Sprite end -->
-<?php get_page_part('/page-parts/part-price-widget');
 
-?>
-<?php get_page_part('/page-parts/part-modal', array(
-  'class' => '',
-  'title' => 'Заявка'
-));?>
 <?php
 // echo get_browser("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 Edg/90.0.818.62"); ?>
 <main class="wrapper is-100-height">
@@ -50,7 +44,7 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-between">
           <a class="brand rounded-circle overflow-hidden" href="<?php echo home_url() ?>">
-            <img class="position-relative img-fluid" src="<?php echo get_field('logo','option')['sizes']['thumbnail'] ?>" width="" height="" alt="<?php echo get_field('logo','option')['alt']; ?>">
+            <img class="position-relative img-fluid" src="<?php //echo get_field('logo','option')['sizes']['thumbnail'] ?>" width="" height="" alt="<?php //echo get_field('logo','option')['alt']; ?>">
           </a>
           <div class="burger__wrapper">
             <button class="burger" type="button" aria-label="Menu toggler">
@@ -88,14 +82,7 @@
                   'fallback_cb'     => '',
                   'menu_class'      => 'list-unstyled m-auto',
                   'items_wrap'      => '%3$s'
-                ]);
-
-                if (!get_field('disable_widget','option')) :
-              ?>
-              <li><a data-modal=".modal-price-widget">Цены</a></li>
-              <?php
-                endif;
-              ?>
+                ]); ?>
             </ul>
           </nav>
         </div>
