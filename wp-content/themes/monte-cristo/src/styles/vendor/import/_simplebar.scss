@@ -1,0 +1,26 @@
+@import "node_modules/simplebar/dist/simplebar";
+.simplebar {
+  &-track.simplebar-vertical {
+    width: 9px;
+  }
+  &-scrollbar {
+    &:before {
+      background: $red;
+    }
+  }
+  &-horizontal {
+    display: none;
+  }
+  &-content {
+    .popup & {
+      width: 100%;
+      margin: auto;
+      padding: $spacer * 1.5 0;
+    }
+    &-wrapper {
+      .popup & {
+        display: flex;
+      }
+    }
+  }
+}

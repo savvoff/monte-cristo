@@ -1,0 +1,18 @@
+.main {
+  img {
+    object-position: 60%;
+  }
+  .page-section__title {
+    line-height: $line-height-lg;
+  }
+}
+
+.take-with {
+  figure {
+    width: 100%;
+    max-width: 60px;
+    @include media-breakpoint-up(sm) {
+      max-width: 100px;
+    }
+  }
+}

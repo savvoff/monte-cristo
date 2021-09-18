@@ -1,0 +1,20 @@
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  opacity: 0;
+  visibility: hidden;
+  @include transition(1s $ease-out-cubic);
+  background-color: $body-bg;
+  z-index: $zindex-fixed;
+  &.loading {
+    opacity: 1;
+    visibility: visible;
+  }
+  .loaded & {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@import "node_modules/bootstrap/scss/spinners";

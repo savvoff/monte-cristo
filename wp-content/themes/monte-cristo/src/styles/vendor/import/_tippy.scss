@@ -1,0 +1,24 @@
+@import "node_modules/tippy.js/dist/tippy"; // optional for styling
+// @import "node_modules/tippy.js/themes/light-border"; // optional for styling
+@import "node_modules/tippy.js/animations/perspective"; // optional for styling
+
+small[data-tippy-content] {
+  position: relative;
+  top: -$spacer/2;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+  background-color: $gray-700;
+  border-radius: 50%;
+}
+[data-tippy-content] {
+  cursor: default;
+}
+.tippy {
+  &-backdrop {
+    border: $border-width solid $border-color;
+  }
+}

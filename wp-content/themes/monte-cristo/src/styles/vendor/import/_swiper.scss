@@ -1,0 +1,85 @@
+@import "node_modules/swiper/swiper";
+.slider, .swiper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  &-lazy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include aspect-ratio(4, 3);
+    @include media-breakpoint-up(sm) {
+      @include aspect-ratio(18, 9);
+    }
+  }  
+}
+.swiper {
+  &-pagination-bullet {
+    display: inline-block;
+    margin: 0 $spacer/4;
+    width: 12px;
+    height: 12px;
+    border: $border-width solid $white;
+    border-radius: 50%;
+    @include transition(0.3s $ease-out-cubic);
+    .gallery & {
+      background-color: $secondary;
+    }
+    &-active {
+      border: $border-width solid $orange;
+      background-color: $orange !important;
+    }
+  }
+}
+.gallery-pagination {
+  max-width: 250px;
+  margin: $spacer 0;
+  text-align: center;
+}
+.gallery-button {
+  &__group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-next, &-prev {
+    cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
+    top: calc(50% - 23px);
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    svg {
+      margin: 0;
+      @include transition(0.3s $ease-out-cubic);
+    }
+    &.swiper-button-disabled {
+      opacity: 0.8;
+    }
+  }
+  &-prev {
+    @include hover() {
+      svg {
+        margin-left: $spacer/2;
+      }
+    }    
+  }
+  &-next {
+    left: initial;
+    right: 0;
+    @include hover() {
+      svg {
+        margin-right: -$spacer/2;
+      }
+    } 
+  }
+}
+.gallery-button-prev {
+  transform: scale(-1);
+}

@@ -1,0 +1,125 @@
+.shop {
+  position: relative;
+}
+.cart {
+  .btn-clear {
+    position: absolute;
+    top: -$spacer / 2;
+    right: $spacer / 4;
+    @include media-breakpoint-up(sm) {
+      right: $spacer * 2;
+    }
+    svg {
+      max-width: 28px;
+      max-height: 28px;
+    }    
+  }
+  .amount, .delivery, .total {
+    border-bottom: $border-width dashed $light-blue;
+  }
+}
+.product {
+  &-pagination {
+    a {
+      transform: scale(1);
+      @include hover-focus() {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .quantity {
+    display: inline-flex;
+    text-align: center;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius-lg;
+    background-color: $white;
+    input[type=number] {
+      min-width: 50px;
+      height: $spacer * 2;
+      text-align: center;
+      padding: $spacer 0;
+      border-top: 0;
+      border-bottom: 0;
+      background-color: transparent;
+      -moz-appearance: textfield;
+      &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+        margin: 0;
+        -webkit-appearance: none;
+      }
+    }
+    span {
+      display: inline-block;
+      width: 40px;
+      line-height: $spacer * 2;
+      color: $orange;
+      cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
+      user-select: none;
+    }
+  }
+}
+.minicart {
+  position: fixed;
+  right: $spacer;
+  bottom: $spacer * 6;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: $orange;
+  z-index: $zindex-fixed;
+  @include transition(0.3s $ease-out-cubic);
+  @include media-breakpoint-up(sm) {
+    width: 64px;
+    height: 64px;
+    right: $spacer * 1.5;
+    bottom: $spacer * 1.5;
+  }
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    animation: ripple 8s infinite;
+    opacity: 1;
+    transform: scale(0);
+    background-color: $orange;
+  }
+  @keyframes ripple {
+    20% {
+      opacity: 0;
+      transform: scale(2);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
+  @include hover() {
+    background-color: darken($orange, 10%);
+  }
+  a {
+    position: relative;
+    left: -2px; /* fix */
+    line-height: normal;
+    svg {      
+      @include media-breakpoint-up(sm) {
+        max-width: 30px;
+        max-height: 30px;
+      }
+    }
+    & + span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: $font-size-sm;
+      background-color: $red;
+    }
+  }
+}

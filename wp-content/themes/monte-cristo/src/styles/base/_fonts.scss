@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+// @font-face {
+//   font-family: 'Halvar Breit Blk';
+//   src: url('../fonts/HalvarBreit-BlkSlanted.eot');
+//   src: local('Halvar Breitschrift Black Slanted'), local('HalvarBreit-BlkSlanted'),
+//       url('../fonts/HalvarBreit-BlkSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-BlkSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-BlkSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-BlkSlanted.ttf') format('truetype');
+//   font-weight: 900;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+// @font-face {
+//   font-family: 'Halvar Breit Blk';
+//   src: url('../fonts/HalvarBreit-Blk.eot');
+//   src: local('Halvar Breitschrift Black'), local('HalvarBreit-Blk'),
+//       url('../fonts/HalvarBreit-Blk.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-Blk.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-Blk.woff') format('woff'),
+//       url('../fonts/HalvarBreit-Blk.ttf') format('truetype');
+//   font-weight: 900;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+// @font-face {
+//   font-family: 'Halvar Breit Blk SuSlanted';
+//   src: url('../fonts/HalvarBreit-BlkSuSlanted.eot');
+//   src: local('Halvar Breitschrift Black SuperSlanted'), local('HalvarBreit-BlkSuSlanted'),
+//       url('../fonts/HalvarBreit-BlkSuSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-BlkSuSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-BlkSuSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-BlkSuSlanted.ttf') format('truetype');
+//   font-weight: 900;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-Lt.eot');
+  src: local('Halvar Breitschrift Light'), local('HalvarBreit-Lt'),
+      url('../fonts/HalvarBreit-Lt.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-Lt.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-Lt.woff') format('woff'),
+      url('../fonts/HalvarBreit-Lt.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: 'Halvar Breit Hl SuSlanted';
+//   src: url('../fonts/HalvarBreit-HlSuSlanted.eot');
+//   src: local('Halvar Breitschrift Hairline SuperSlanted'), local('HalvarBreit-HlSuSlanted'),
+//       url('../fonts/HalvarBreit-HlSuSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-HlSuSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-HlSuSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-HlSuSlanted.ttf') format('truetype');
+//   font-weight: 100;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-Md.eot');
+  src: local('Halvar Breitschrift Medium'), local('HalvarBreit-Md'),
+      url('../fonts/HalvarBreit-Md.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-Md.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-Md.woff') format('woff'),
+      url('../fonts/HalvarBreit-Md.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: 'Halvar Breit XTh SuSlanted';
+//   src: url('../fonts/HalvarBreit-XThSuSlanted.eot');
+//   src: local('Halvar Breitschrift ExtraThin SuperSlanted'), local('HalvarBreit-XThSuSlanted'),
+//       url('../fonts/HalvarBreit-XThSuSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-XThSuSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-XThSuSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-XThSuSlanted.ttf') format('truetype');
+//   font-weight: 100;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-Bd.eot');
+  src: local('Halvar Breitschrift Bold'), local('HalvarBreit-Bd'),
+      url('../fonts/HalvarBreit-Bd.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-Bd.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-Bd.woff') format('woff'),
+      url('../fonts/HalvarBreit-Bd.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: 'Halvar Breit Md SuSlanted';
+//   src: url('../fonts/HalvarBreit-MdSuSlanted.eot');
+//   src: local('Halvar Breitschrift Medium SuperSlanted'), local('HalvarBreit-MdSuSlanted'),
+//       url('../fonts/HalvarBreit-MdSuSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-MdSuSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-MdSuSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-MdSuSlanted.ttf') format('truetype');
+//   font-weight: 500;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+// @font-face {
+//   font-family: 'Halvar Breit Hl Slanted';
+//   src: url('../fonts/HalvarBreit-HlSlanted.eot');
+//   src: local('Halvar Breitschrift Hairline Slanted'), local('HalvarBreit-HlSlanted'),
+//       url('../fonts/HalvarBreit-HlSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-HlSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-HlSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-HlSlanted.ttf') format('truetype');
+//   font-weight: 100;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-RgSlanted.eot');
+  src: local('Halvar Breitschrift Regular Slanted'), local('HalvarBreit-RgSlanted'),
+      url('../fonts/HalvarBreit-RgSlanted.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-RgSlanted.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-RgSlanted.woff') format('woff'),
+      url('../fonts/HalvarBreit-RgSlanted.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-XBd.eot');
+  src: local('Halvar Breitschrift ExtraBold'), local('HalvarBreit-XBd'),
+      url('../fonts/HalvarBreit-XBd.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-XBd.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-XBd.woff') format('woff'),
+      url('../fonts/HalvarBreit-XBd.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: 'Halvar Breit XTh';
+//   src: url('../fonts/HalvarBreit-XThSlanted.eot');
+//   src: local('Halvar Breitschrift ExtraThin Slanted'), local('HalvarBreit-XThSlanted'),
+//       url('../fonts/HalvarBreit-XThSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-XThSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-XThSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-XThSlanted.ttf') format('truetype');
+//   font-weight: 100;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+// @font-face {
+//   font-family: 'Halvar Breit Th SuSlanted';
+//   src: url('../fonts/HalvarBreit-ThSuSlanted.eot');
+//   src: local('Halvar Breitschrift Thin SuperSlanted'), local('HalvarBreit-ThSuSlanted'),
+//       url('../fonts/HalvarBreit-ThSuSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-ThSuSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-ThSuSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-ThSuSlanted.ttf') format('truetype');
+//   font-weight: 100;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+// @font-face {
+//   font-family: 'Halvar Breit EBd SuSlanted';
+//   src: url('../fonts/HalvarBreit-XBdSuSlanted.eot');
+//   src: local('Halvar Breitschrift ExtraBold SuperSlanted'), local('HalvarBreit-XBdSuSlanted'),
+//       url('../fonts/HalvarBreit-XBdSuSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-XBdSuSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-XBdSuSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-XBdSuSlanted.ttf') format('truetype');
+//   font-weight: 800;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+// @font-face {
+//   font-family: 'Halvar Breit Rg SuSlanted';
+//   src: url('../fonts/HalvarBreit-RgSuSlanted.eot');
+//   src: local('Halvar Breitschrift Regular SuperSlanted'), local('HalvarBreit-RgSuSlanted'),
+//       url('../fonts/HalvarBreit-RgSuSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-RgSuSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-RgSuSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-RgSuSlanted.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-XBdSlanted.eot');
+  src: local('Halvar Breitschrift ExtraBold Slanted'), local('HalvarBreit-XBdSlanted'),
+      url('../fonts/HalvarBreit-XBdSlanted.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-XBdSlanted.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-XBdSlanted.woff') format('woff'),
+      url('../fonts/HalvarBreit-XBdSlanted.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: 'Halvar Breit Lt SuSlanted';
+//   src: url('../fonts/HalvarBreit-LtSuSlanted.eot');
+//   src: local('Halvar Breitschrift Light SuperSlanted'), local('HalvarBreit-LtSuSlanted'),
+//       url('../fonts/HalvarBreit-LtSuSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-LtSuSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-LtSuSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-LtSuSlanted.ttf') format('truetype');
+//   font-weight: 300;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-Th.eot');
+  src: local('Halvar Breitschrift Thin'), local('HalvarBreit-Th'),
+      url('../fonts/HalvarBreit-Th.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-Th.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-Th.woff') format('woff'),
+      url('../fonts/HalvarBreit-Th.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: 'Halvar Breit XTh';
+//   src: url('../fonts/HalvarBreit-XTh.eot');
+//   src: local('Halvar Breitschrift ExtraThin'), local('HalvarBreit-XTh'),
+//       url('../fonts/HalvarBreit-XTh.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-XTh.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-XTh.woff') format('woff'),
+//       url('../fonts/HalvarBreit-XTh.ttf') format('truetype');
+//   font-weight: 100;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+// @font-face {
+//   font-family: 'Halvar Breit Bd SuSlanted';
+//   src: url('../fonts/HalvarBreit-BdSuSlanted.eot');
+//   src: local('Halvar Breitschrift Bold SuperSlanted'), local('HalvarBreit-BdSuSlanted'),
+//       url('../fonts/HalvarBreit-BdSuSlanted.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-BdSuSlanted.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-BdSuSlanted.woff') format('woff'),
+//       url('../fonts/HalvarBreit-BdSuSlanted.ttf') format('truetype');
+//   font-weight: bold;
+//   font-style: italic;
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-ThSlanted.eot');
+  src: local('Halvar Breitschrift Thin Slanted'), local('HalvarBreit-ThSlanted'),
+      url('../fonts/HalvarBreit-ThSlanted.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-ThSlanted.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-ThSlanted.woff') format('woff'),
+      url('../fonts/HalvarBreit-ThSlanted.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-LtSlanted.eot');
+  src: local('Halvar Breitschrift Light Slanted'), local('HalvarBreit-LtSlanted'),
+      url('../fonts/HalvarBreit-LtSlanted.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-LtSlanted.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-LtSlanted.woff') format('woff'),
+      url('../fonts/HalvarBreit-LtSlanted.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: 'Halvar Breit Hl';
+//   src: url('../fonts/HalvarBreit-Hl.eot');
+//   src: local('Halvar Breitschrift Hairline'), local('HalvarBreit-Hl'),
+//       url('../fonts/HalvarBreit-Hl.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-Hl.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-Hl.woff') format('woff'),
+//       url('../fonts/HalvarBreit-Hl.ttf') format('truetype');
+//   font-weight: 100;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-MdSlanted.eot');
+  src: local('Halvar Breitschrift Medium Slanted'), local('HalvarBreit-MdSlanted'),
+      url('../fonts/HalvarBreit-MdSlanted.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-MdSlanted.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-MdSlanted.woff') format('woff'),
+      url('../fonts/HalvarBreit-MdSlanted.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-BdSlanted.eot');
+  src: local('Halvar Breitschrift Bold Slanted'), local('HalvarBreit-BdSlanted'),
+      url('../fonts/HalvarBreit-BdSlanted.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-BdSlanted.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-BdSlanted.woff') format('woff'),
+      url('../fonts/HalvarBreit-BdSlanted.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: 'Halvar Breit Hl';
+//   src: url('../fonts/HalvarBreit-Hl_1.eot');
+//   src: local('Halvar Breitschrift Hairline'), local('HalvarBreit-Hl'),
+//       url('../fonts/HalvarBreit-Hl_1.eot?#iefix') format('embedded-opentype'),
+//       url('../fonts/HalvarBreit-Hl_1.woff2') format('woff2'),
+//       url('../fonts/HalvarBreit-Hl_1.woff') format('woff'),
+//       url('../fonts/HalvarBreit-Hl_1.ttf') format('truetype');
+//   font-weight: 100;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: 'Halvar Breit';
+  src: url('../fonts/HalvarBreit-Rg.eot');
+  src: local('Halvar Breitschrift Regular'), local('HalvarBreit-Rg'),
+      url('../fonts/HalvarBreit-Rg.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HalvarBreit-Rg.woff2') format('woff2'),
+      url('../fonts/HalvarBreit-Rg.woff') format('woff'),
+      url('../fonts/HalvarBreit-Rg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
