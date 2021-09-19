@@ -2,24 +2,24 @@ import { options } from "./import/options";
 import "./import/sliders";
 import {
   embedYoutube,
-  accordionMenu,
+  // accordionMenu,
   setFullHeight,
-  fillInput,
-  expander,
+  // fillInput,
+  // expander,
   scrollTo,
-  scrollHeader,
-  selector,
+  // scrollHeader,
+  // selector,
   openTab,
   showMenu,
-  setProgress,
+  // setProgress,
   // scrollHeader,
-  setAspectRatioVideo,
+  // setAspectRatioVideo,
   Modal,
   Timer,
   // customCursor,
 } from "./import/helpers";
-import objectFitImages from "object-fit-images";
-import Zooming from "zooming";
+// import objectFitImages from "object-fit-images";
+// import Zooming from "zooming";
 // import tippy from "tippy.js";
 
 // Custom plugins
@@ -30,12 +30,9 @@ const PATH = themePath;
 
 class App {
   constructor() {
-    this.preloadSession();
+    // this.preloadSession();
     this.addEventListeners();
-    $("#svg-sprites").load(
-      `${PATH}/dist/img/sprites/sprite.svg`,
-      (res) => res.data
-    );
+    $("#svg-sprites").load(`${PATH}/dist/img/sprites/sprite.svg`);
     objectFitImages("img.img-fit");
     // tippy("[data-tippy-content]", options.tippy);
     setAspectRatioVideo();
@@ -65,7 +62,7 @@ class App {
 
     $(window).on("load", () => {
       // End Loader prod
-      setProgress();
+      // setProgress();
       scrollHeader();
       console.log("App init\n");
     });
@@ -76,19 +73,19 @@ class App {
     });
 
     // Elements events
-    $(".tab__link").on("click", openTab);
-    $(".form-control, .form-check input").on(
-      "blur input focus change",
-      fillInput
-    );
-    $(".accordion__tab.active").find(".accordion__content").slideToggle();
-    $(".accordion__group").on("click", accordionMenu);
+    // $(".tab__link").on("click", openTab);
+    // $(".form-control, .form-check input").on(
+    //   "blur input focus change",
+    //   fillInput
+    // );
+    // $(".accordion__tab.active").find(".accordion__content").slideToggle();
+    // $(".accordion__group").on("click", accordionMenu);
 
-    $(".btn-expand").on("click", expander);
+    // $(".btn-expand").on("click", expander);
     // end
     $(".burger").on("click", showMenu);
     $(".to-top, a[href^='#']").on("click", scrollTo);
-    $(".page-langs").on("click", selector);
+    // $(".page-langs").on("click", selector);
   }
 }
 

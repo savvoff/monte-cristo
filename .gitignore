@@ -18,6 +18,7 @@ tfm
 wp-config.php
 storage/cache
 storage/session
+/uploads
 
 # ftp + archives
 .ftpconfig
