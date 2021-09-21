@@ -39,22 +39,6 @@
       }
     }
   }
-  figure {
-    figcaption {
-      font-size: $spacer / 2;
-      @include media-breakpoint-up(sm) {
-        font-size: $spacer / 1.5;
-      }
-    }
-    img {
-      width: 28px;
-      height: 28px;
-      @include media-breakpoint-up(sm) {
-        width: 35px;
-        height: 35px;
-      }
-    }
-  }
   .burger {
     position: relative;
     display: inline-block;
@@ -62,9 +46,6 @@
     width: 45px;
     background-color: transparent;
     border: none;
-    & + p {
-      font-size: $spacer / 2;
-    }
     span {
       position: absolute;
       top: 50%;

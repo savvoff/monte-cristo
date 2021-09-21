@@ -1,23 +1,6 @@
 .shop {
   position: relative;
 }
-.cart {
-  .btn-clear {
-    position: absolute;
-    top: -$spacer / 2;
-    right: $spacer / 4;
-    @include media-breakpoint-up(sm) {
-      right: $spacer * 2;
-    }
-    svg {
-      max-width: 28px;
-      max-height: 28px;
-    }    
-  }
-  .amount, .delivery, .total {
-    border-bottom: $border-width dashed $light-blue;
-  }
-}
 .product {
   &-pagination {
     a {
@@ -103,7 +86,7 @@
     position: relative;
     left: -2px; /* fix */
     line-height: normal;
-    svg {      
+    svg {
       @include media-breakpoint-up(sm) {
         max-width: 30px;
         max-height: 30px;

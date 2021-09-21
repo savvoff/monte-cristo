@@ -1,240 +1,28 @@
 .wrapper {
-  width: 100%;
-  @include transition(opacity 0.3s linear);
-  visibility: hidden;
-  opacity: 0;
-  .loaded & {
-    visibility: visible;
-    opacity: 1;
-  }
-  .page-section {
-    position: relative;
-    &_center {
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      transform: translate3d(-50%, -50%, 0);
-      z-index: 1;
-    }
-    &__title {
-      text-transform: uppercase;
-      u {
-        text-decoration: none;
-        @include media-breakpoint-up(sm) {
-          @supports (-webkit-text-stroke: $secondary) {
-            color: rgba($orange, 0.1);
-            -webkit-text-stroke: $border-width $secondary;
-          }
-        }
-      }
-    }
-    &__text {
-      @include fluid($vw-1600, $vw-2560, $font-size-lg, $font-size-lg * 1.5);
-      @include fluid($vw-576, $vw-1200, $font-size-sm, $font-size-lg);
-      font-weight: 500;
-      line-height: $line-height-base;
-    }
-    &__desc {
-      @include fluid($vw-1600, $vw-2560, $font-size-base * 1.125, $font-size-base * 1.125 * 1.5);
-      @include fluid($vw-576, $vw-1200, $font-size-base, $font-size-base * 1.125);
-      font-weight: 500;
-      line-height: $line-height-base;
-    }
-    &.hero {
-      &:after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background: radial-gradient(circle at 50% -100%, rgba($white, 1) 30%, rgba($white, 0) 80%);
-      }
-    }
-  }
-}
-.shadow-lg-darken {
-  box-shadow: 0px 15px 50px 5px #14599d;
-}
-.ratio-16x9 {
-  @include aspect-ratio(16, 9);
-  .btn-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    padding: 0;
-    width: 60px;
-    height: 60px;
-    background-color: transparent;
-    border: $border-width solid $secondary;
-    border-radius: 50%;
-    overflow: visible;
-    z-index: 1;
-    &:after, &:before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      border: $border-width solid rgba($secondary, 0.7);
-      border-radius: 50%;
-      @include transition(0.3s $ease-out-cubic);
-      transition-delay: 0.15s;
-    }
-    &:after {
-      top: -100%;
-      left: -100%;
-      width: 300%;
-      height: 300%;
-      border: $border-width solid rgba($secondary, 0.4);
-      transition-delay: 0.2s;
-    }
-    .icon-play {
-      width: 50%;
-      height: 50%;
-      margin-right: -10%;
-    }
-    @include hover() {
-      &:after, &:before {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-}
-.ratio-1x1 {
-  @include aspect-ratio(1, 1);
-}
-.ratio-4x3 {
-  @include aspect-ratio(4, 3);
-}
-.ratio-11x4 {
-  @include aspect-ratio(11, 4);
-}
-@for $i from 1 through 10 {
-  .is-#{$i*10}-height {
-    min-height: #{$i * 10}vh;
-    min-height: calc(var(--vh, 1vh) * #{$i * 10});
-    &.is-limit {
-      max-height: #{$i * 10}vh;
-      max-height: calc(var(--vh, 1vh) * #{$i * 10});
-    }
-  }
+  @extend .min-vh-100;
+  @extend .vstack;
+  padding-top: 7rem;
 }
 
-.pagination {
-  .page-numbers {
-    display: inline-block;
-    padding: $spacer/2.25 $spacer/1.5;
-    margin: $spacer/4;
-    border: $border-width solid $border-color;
-    border-radius: $btn-border-radius;
-    @include fluid($vw-576, $vw-1200, $font-size-sm, $font-size-base);
-    &.current {
-      color: $white;
-      background-color: $secondary;
-    }
-  }
-}
-.icon {
-  &-trust {
-    width: 20px;
-    height: 20px;
-  }
-  &-close {
-    max-width: 15px;
-    max-height: 15px;
-    @include media-breakpoint-up(sm) {
-      max-width: 20px;
-      max-height: 20px;
-    }
-  }
-  &-plus {
-    max-width: 20px;
-    max-height: 20px;
-    fill: $blue;
-  }
-  &-cart {
-    max-width: 20px;
-    max-height: 20px;
-  }
-  &-check {
-    min-width: 18px;
-    max-width: 18px;
-    max-height: 18px;
-    fill: $blue;
-  }
-  &-arrow {
-    max-width: 20px;
-    max-height: 20px;
-  }
-  &-play {
-    max-width: 40px;
-    max-height: 40px;
-  }
-}
+// Responsive images (ensure images don't scale beyond their parents)
+//
+// This is purposefully opt-in via an explicit class rather than being the default for all `<img>`s.
+// We previously tried the "images are responsive by default" approach in Bootstrap v2,
+// and abandoned it in Bootstrap v3 because it breaks lots of third-party widgets (including Google Maps)
+// which weren't expecting the images within themselves to be involuntarily resized.
+// See also https://github.com/twbs/bootstrap/issues/18178
 .img-fluid {
-  @include img-fluid;
+  @include img-fluid();
 }
 
-.img-fit {
-  & > img {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    @include object-fit(cover);
-  }
-  &_top {
-    @extend .img-fit;
-    & > img {
-      @include object-fit(cover, top);
-    }
-  }
-  &_bot {
-    @extend .img-fit;
-    & > img {
-      @include object-fit(cover, bottom);
-    }
-  }
-  &_contain {
-    @extend .img-fit;
-    & > img {
-      @include object-fit(contain);
-    }
-  }
-}
+// Image thumbnails
+.img-thumbnail {
+  padding: $thumbnail-padding;
+  background-color: $thumbnail-bg;
+  border: $thumbnail-border-width solid $thumbnail-border-color;
+  @include border-radius($thumbnail-border-radius);
+  @include box-shadow($thumbnail-box-shadow);
 
-.logo {
-  max-width: 60px;
-  max-height: 60px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.content-expand {
-  .btn-expand {
-    cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
-  }
-  [aria-expanded] {
-    position: relative;
-  }
-  [aria-expanded="false"] {
-    height: 80px;
-    overflow: hidden;
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(180deg, rgba($white, 0) 10%, rgba($white, 1) 100%);
-    }
-  }
+  // Keep them at most 100% wide
+  @include img-fluid();
 }

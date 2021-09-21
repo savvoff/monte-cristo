@@ -9,7 +9,7 @@ export const options = {
       (Math.random() * (max - min) + min).toFixed(2),
   },
   body: $("body"), // document.body
-  header: $(".page-header"),
+  header: $(".site-header"),
   zooming: {
     bgColor: "#0d0d0d",
     bgOpacity: 0.5,

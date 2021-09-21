@@ -5,8 +5,8 @@
   */
 get_header();
 ?>
-<section class="page-section py-4 py-lg-6">
-  <div class="container-fluid">
+<section class="page-section">
+  <div class="container">
     <div class="row">
       <div class="col-12 text-center mb-4">
         <h1 class="page-section__title">UI-KIT</h1>
@@ -42,22 +42,23 @@ get_header();
     <div class="row">
       <div class="col-lg-6">
         <p class="h2 mb-4 text-center">Spacers</p>
-        <p class="text-light bg-success pt-6 px-3 mb-3">4 rem</p>
-        <p class="text-light bg-success pt-5 px-3 mb-3">2.5 rem</p>
-        <p class="text-light bg-success pt-4 px-3 mb-3">1.5 rem</p>
-        <p class="text-light bg-success pt-3 px-3 mb-3">1 rem</p>
-        <p class="text-light bg-success pt-2 px-3 mb-3">0.5 rem</p>
-        <p class="text-light bg-success pt-1 px-3 mb-3">0.25 rem</p>
+        <p class="text-light text-black bg-white pt-6 px-3 mb-3">5 rem</p>
+        <p class="text-light text-black bg-white pt-5 px-3 mb-3">3 rem</p>
+        <p class="text-light text-black bg-white pt-4 px-3 mb-3">1.5 rem</p>
+        <p class="text-light text-black bg-white pt-3 px-3 mb-3">1 rem</p>
+        <p class="text-light text-black bg-white pt-2 px-3 mb-3">0.5 rem</p>
+        <p class="text-light text-black bg-white pt-1 px-3 mb-3">0.25 rem</p>
       </div>
       <div class="col-lg-6">
         <p class="h2 mb-4 text-center">Colors</p>
-        <p class="text-light bg-primary pt-5 mb-3"></p>
-        <p class="text-light bg-secondary pt-5 mb-3"></p>
-        <p class="text-light bg-success pt-5 mb-3"></p>
-        <p class="text-light bg-info pt-5 mb-3"></p>
-        <p class="text-light bg-warning pt-5 mb-3"></p>
-        <p class="text-light bg-light pt-5 mb-3"></p>
-        <p class="text-light bg-dark pt-5 mb-3"></p>
+        <p class="text-dark bg-primary pt-4 px-3 mb-3">primary</p>
+        <p class="text-light bg-secondary pt-4 px-3 mb-3">secondary</p>
+        <p class="text-light bg-success pt-4 px-3 mb-3">success</p>
+        <p class="text-light bg-info pt-4 px-3 mb-3">info</p>
+        <p class="text-light bg-warning pt-4 px-3 mb-3">warning</p>
+        <p class="text-light bg-danger pt-4 px-3 mb-3">danger</p>
+        <p class="text-dark bg-light pt-4 px-3 mb-3">light</p>
+        <p class="text-light bg-dark border border-white pt-4 px-3 mb-3">dark</p>
       </div>
     </div>
   </div>

@@ -3,11 +3,7 @@
 import { paths } from "../gulpfile.babel";
 import gulp from "gulp";
 import gulpif from "gulp-if";
-import imagemin from "gulp-imagemin";
-import imageminPngquant from "imagemin-pngquant";
-import imageminZopfli from "imagemin-zopfli";
-import imageminMozjpeg from "imagemin-mozjpeg";
-import imageminGiflossy from "imagemin-giflossy";
+import image from "gulp-image";
 import debug from "gulp-debug";
 import browsersync from "browser-sync";
 import yargs from "yargs";
@@ -21,36 +17,15 @@ gulp.task("images", () => {
     .pipe(
       gulpif(
         production,
-        imagemin([
-          imageminGiflossy({
-            optimizationLevel: 3,
-            optimize: 3,
-            lossy: 2
-          }),
-          imageminPngquant({
-            speed: 5,
-            quality: [0.6, 0.8]
-          }),
-          imageminZopfli({
-            more: true
-          }),
-          imageminMozjpeg({
-            progressive: true,
-            quality: 90
-          }),
-          imagemin.svgo({
-            plugins: [
-              { removeViewBox: false },
-              { removeUnusedNS: false },
-              { removeUselessStrokeAndFill: false },
-              { cleanupIDs: false },
-              { removeComments: true },
-              { removeEmptyAttrs: true },
-              { removeEmptyText: true },
-              { collapseGroups: true }
-            ]
-          })
-        ])
+        image({
+          optipng: ['-i 1', '-strip all', '-fix', '-o7', '-force'],
+          pngquant: ['--speed=1', '--force', 256],
+          zopflipng: ['-y', '--lossy_8bit', '--lossy_transparent'],
+          mozjpeg: ['-optimize', '-progressive'],
+          jpegRecompress: ['--strip', '--quality', 'medium', '--min', 60, '--max', 80],
+          gifsicle: ['--optimize'],
+          svgo: ['--enable', 'cleanupIDs', '--disable', 'convertColors']
+        })
       )
     )
     .pipe(gulp.dest(paths.images.dist))

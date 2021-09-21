@@ -1,7 +1,7 @@
 <?php
 
-define('MC_URI', get_template_directory_uri('mc'));
-define('MC_DIR', get_template_directory('mc'));
+define('THEME_URI', get_template_directory_uri());
+define('THEME_DIR', get_template_directory());
 
 $theme_includes = [
   '/includes/theme-support.php',                    // Theme support options

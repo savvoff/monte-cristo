@@ -1,6 +1,6 @@
-import { isMobile } from "mobile-device-detect";
+// import { isMobile } from "mobile-device-detect";
 import { options } from "./options";
-import "simplebar";
+// import "simplebar";
 
 // Global helpers
 // YT Player
@@ -101,11 +101,11 @@ export function accordionMenu(ev) {
 
 // Burger sidebar
 export function showMenu() {
-  if (options.header.hasClass("show-menu")) { 
-    options.header.removeClass("show-menu");
+  if (options.header.find(".burger-container").hasClass("is-animate")) {
+    options.header.find(".burger-container").removeClass("is-animate");
     unblockScroll();
   } else {
-    options.header.addClass("show-menu");
+    options.header.find(".burger-container").addClass("is-animate");
     blockScroll();
   }
 }

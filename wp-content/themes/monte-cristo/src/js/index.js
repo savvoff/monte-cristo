@@ -1,5 +1,5 @@
 import { options } from "./import/options";
-import "./import/sliders";
+// import "./import/sliders";
 import {
   embedYoutube,
   // accordionMenu,
@@ -9,13 +9,13 @@ import {
   scrollTo,
   // scrollHeader,
   // selector,
-  openTab,
+  // openTab,
   showMenu,
   // setProgress,
   // scrollHeader,
   // setAspectRatioVideo,
-  Modal,
-  Timer,
+  // Modal,
+  // Timer,
   // customCursor,
 } from "./import/helpers";
 // import objectFitImages from "object-fit-images";
@@ -32,17 +32,17 @@ class App {
   constructor() {
     // this.preloadSession();
     this.addEventListeners();
+    setFullHeight();
     $("#svg-sprites").load(`${PATH}/dist/img/sprites/sprite.svg`);
-    objectFitImages("img.img-fit");
     // tippy("[data-tippy-content]", options.tippy);
-    setAspectRatioVideo();
+    // setAspectRatioVideo();
     embedYoutube();
 
-    new Modal("[data-modal]");
-    new Timer("[data-timer]");
-    const zooming = new Zooming(options.zooming);
+    // new Modal("[data-modal]");
+    // new Timer("[data-timer]");
+    // const zooming = new Zooming(options.zooming);
     // zooming.overlay.parent = $("[data-scroll-container]").get(0); // change el to append overlay
-    zooming.listen("[data-zoom], article img, .article img");
+    // zooming.listen("[data-zoom], article img, .article img");
 
     // End Loader dev
     // setProgress();
@@ -57,13 +57,13 @@ class App {
   addEventListeners() {
     $(window).on("scroll", () => {
       // getPageYScroll();
-      scrollHeader();
+      // scrollHeader();
     });
 
     $(window).on("load", () => {
       // End Loader prod
       // setProgress();
-      scrollHeader();
+      // scrollHeader();
       console.log("App init\n");
     });
 
@@ -83,7 +83,7 @@ class App {
 
     // $(".btn-expand").on("click", expander);
     // end
-    $(".burger").on("click", showMenu);
+    $(".burger-container").on("click", showMenu);
     $(".to-top, a[href^='#']").on("click", scrollTo);
     // $(".page-langs").on("click", selector);
   }

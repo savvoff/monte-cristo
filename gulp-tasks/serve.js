@@ -6,10 +6,10 @@ import browsersync from "browser-sync";
 
 gulp.task("serve", () => {
   browsersync.init({
-    server: `.${paths.frontPath}/`,
-    port: 2601,
+    // server: `.${paths.frontPath}/`,
+    port: 3030,
     notify: true,
-    // proxy: URL // if use different server (e.g. OpenServer)
+    proxy: URL // if use different server (e.g. OpenServer)
   });
 
   gulp.watch(paths.views.watch, gulp.parallel("views"));

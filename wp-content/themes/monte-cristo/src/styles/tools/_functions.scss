@@ -5,13 +5,13 @@
 
 @function strip-unit($value) {
   @if type-of($value) == "number" and not unitless($value) {
-    @return $value / ($value * 0 + 1);
+    @return divide($value, ($value * 0 + 1));
   }
   @return $value;
 }
 
 @function rem-calc($pxval, $base: 16px) {
-  $value: strip-unit($pxval) / strip-unit($base) * 1rem;
+  $value: divide(strip-unit($pxval), strip-unit($base)) * 1rem;
   @if ($value == 0rem) {
     $value: 0;
   } // Turn 0rem into 0

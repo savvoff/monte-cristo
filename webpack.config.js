@@ -1,19 +1,7 @@
-const path = require('path');
-const webpack = require('webpack');
+import path from 'path';
 import { paths } from "./gulpfile.babel";
 
 module.exports = {
-  plugins: [
-    new webpack.ProvidePlugin({
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      jquery: 'jquery',
-      'window.jquery': 'jquery',
-      $: 'jquery',
-      'window.$': 'jquery'
-    })
-  ],
-
   entry: {
     main: `.${paths.frontPath}/src/js/index.js`
   },
@@ -44,7 +32,7 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: require.resolve('babel-loader'),
-          query: {
+          options: {
             presets: [['@babel/preset-env', { modules: false }]]
           }
         }

@@ -1,21 +1,25 @@
-@import "node_modules/bootstrap/scss/utilities/align";
-@import "node_modules/bootstrap/scss/utilities/borders";
-@import "node_modules/bootstrap/scss/utilities/background";
-@import "node_modules/bootstrap/scss/utilities/clearfix";
-@import "node_modules/bootstrap/scss/utilities/display";
-// @import "node_modules/bootstrap/scss/utilities/embed";
-@import "node_modules/bootstrap/scss/utilities/flex";
-// @import "node_modules/bootstrap/scss/utilities/float";
-@import "node_modules/bootstrap/scss/utilities/overflow";
-@import "node_modules/bootstrap/scss/utilities/position";
-// @import "node_modules/bootstrap/scss/utilities/screenreaders";
-@import "node_modules/bootstrap/scss/utilities/shadows";
-@import "node_modules/bootstrap/scss/utilities/sizing";
-// @import "node_modules/bootstrap/scss/utilities/stretched-link";
-@import "node_modules/bootstrap/scss/utilities/spacing";
-@import "node_modules/bootstrap/scss/utilities/text";
-@import "node_modules/bootstrap/scss/utilities/visibility";
+//
+// Utilities
+//
 
+@import "node_modules/bootstrap/scss/utilities";
+$utilities: map-remove($utilities, "align", "float", "align-self", "font-family");
+$utilities: map-merge(
+  $utilities,
+  (
+  "min-viewport-height": (
+      property: min-height,
+      class: min-vh,
+      values: (
+        20: calc(var(--vh, 1vh) * 20),
+        40: calc(var(--vh, 1vh) * 40),
+        60: calc(var(--vh, 1vh) * 60),
+        80: calc(var(--vh, 1vh) * 80),
+        100: calc(var(--vh, 1vh) * 100)
+      )
+    ),
+  )
+);
 //
 // Border-variant
 //
@@ -60,6 +64,5 @@
     }
   }
 }
-.rounded-circle {
-  border-width: 1px!important;
-}
+
+@import "node_modules/bootstrap/scss/utilities/api";

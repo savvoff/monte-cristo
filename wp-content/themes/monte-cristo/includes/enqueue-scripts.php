@@ -11,7 +11,11 @@ if (!function_exists('custom_scripts')) :
   {
 
     // Enqueue the main Stylesheet.
-    wp_enqueue_style('main-stylesheet', get_stylesheet_directory_uri() . '/dist/styles/main.min.css', array(), '1.0.0', 'all');
+    $main_css_filename = file_exists(THEME_DIR . '/dist/styles/main.css') ? 'main.css' : 'main.min.css';
+    $vendor_js_filename = file_exists(THEME_DIR . '/dist/js/vendor.js') ? 'vendor.js' : 'vendor.min.js';
+    $main_js_filename = file_exists(THEME_DIR . '/dist/js/main.js') ? 'main.js' : 'main.min.js';
+
+    wp_enqueue_style('main-stylesheet', get_stylesheet_directory_uri() . '/dist/styles/' . $main_css_filename, array(), '1.0.0', 'all');
     wp_enqueue_style('app', get_stylesheet_directory_uri() . '/style.css', array(), '1.0.0', 'all');
 
     // Deregister the jquery version bundled with WordPress.
@@ -24,8 +28,8 @@ if (!function_exists('custom_scripts')) :
     wp_enqueue_script('lazyload', '//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js', array('jquery'), '1.7.9', false);
     // wp_enqueue_style('slick-css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css');
     // Enqueue the main JS file.
-    wp_enqueue_script('vendor-js', get_stylesheet_directory_uri() . '/dist/js/vendor.min.js', array('jquery'), '1.0.0', true);
-    wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/dist/js/main.min.js', array('vendor-js'), '1.0.0', true);
+    wp_enqueue_script('vendor-js', get_stylesheet_directory_uri() . '/dist/js/' . $vendor_js_filename, array('jquery'), '1.0.0', true);
+    wp_enqueue_script('main-js', get_stylesheet_directory_uri() . '/dist/js/' . $main_js_filename, array('vendor-js'), '1.0.0', true);
 
     wp_localize_script('main-javascript', 'site_urls', [
       'ajax_url' => admin_url('admin-ajax.php')
@@ -44,7 +48,7 @@ endif;
 
 // Custom JS in footer
 
-function custom_scripts()
+function footer_custom_scripts()
 {
   ?>
   <script>
@@ -64,7 +68,7 @@ function custom_scripts()
   <?php
 }
 
-add_action('wp_footer', 'custom_scripts');
+// add_action('wp_footer', 'footer_custom_scripts');
 
 function admin_additional_scripts()
 {

@@ -9,9 +9,9 @@ const requireDir = require("require-dir"),
   paths = {
     frontPath,
     views: {
-      src: `.${frontPath}/**/*.{html,twig}`,
+      src: `.${frontPath}/**/*.{html,php,twig}`,
       dist: `.${frontPath}/`,
-      watch: `.${frontPath}/**/*.{html,twig}`
+      watch: `.${frontPath}/**/*.{html,php,twig}`
     },
     styles: {
       src: `.${frontPath}/src/styles/main.{scss,sass}`,

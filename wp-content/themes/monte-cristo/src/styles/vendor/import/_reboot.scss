@@ -1,14 +1,18 @@
+@import "node_modules/bootstrap/scss/root";
 @import "node_modules/bootstrap/scss/reboot";
+
 body {
-  line-height: $line-height-lg;
-  @include fluid($vw-576, $vw-1200, $font-size-sm, $font-size-base);
+  letter-spacing: 1.4px;
 }
+
+%heading {
+  letter-spacing: 2.2px;
+}
+
 a {
   @include transition(0.3s $ease-out-cubic);
-  &:not([href]) {
-    color: $link-color;
-  }
 }
+
 iframe,
 embed,
 video {
@@ -20,35 +24,13 @@ button,
 option,
 select,
 textarea {
-  @include hover-focus-active() {
+  &:hover, &:focus {
     outline: none;
   }
 }
 ul:not(.list-unstyled) {
   counter-reset: list;
   list-style: none;
-  li {
-    position: relative;
-    line-height: $line-height-lg;
-    &:before {
-      position: absolute;
-      top: 0;
-      left: rem-calc(25px) * -1;
-      @include fluid($vw-1600, $vw-2560, $h1-font-size, $h1-font-size * 1.5);
-      @include fluid($vw-576, $vw-1200, $font-size-lg, $h1-font-size);
-      line-height: normal;
-      font-weight: 700;
-      counter-increment: list;
-      content: counter(list) ". ";
-      @include media-breakpoint-up(md) {
-        left: rem-calc(30px) * -1;
-      }
-      @supports (-webkit-text-stroke: $light-blue) {
-        color: rgba($white, 0.1);
-        -webkit-text-stroke: $border-width/2 $light-blue;
-      }
-    }
-  }
 }
 textarea {
   min-height: 65px;

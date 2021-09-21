@@ -10,7 +10,7 @@ article,
     line-height: $line-height-lg;
     margin-bottom: $spacer;
   }
-  p {    
+  p {
     font-family: $font-family-base;
     clear: both;
     margin-bottom: $spacer;
@@ -23,7 +23,7 @@ article,
     }
   }
   ol,
-  ul {    
+  ul {
     padding-left: $spacer * 2;
     margin-bottom: $spacer;
     @include fluid($vw-1600, $vw-2560, $font-size-base, $font-size-base * 1.5);
