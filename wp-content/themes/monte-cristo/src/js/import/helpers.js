@@ -12,8 +12,8 @@ function onYouTubeIframeAPIReady() {
   }
 
   let config = {
-    height: '100%',
-    width: '100%',
+    height: "100%",
+    width: "100%",
     playerVars: {
       autoplay: 0,
       loop: 1,
@@ -21,17 +21,17 @@ function onYouTubeIframeAPIReady() {
       disablekb: 1,
       fs: 0,
       rel: 0,
-      playlist: '',
+      playlist: "",
       showinfo: 0,
       enablejsapi: 1,
       autohide: 0,
       modestbranding: 1,
-      wmode: 'opaque',
+      wmode: "opaque",
     },
-    videoId: ''
+    videoId: "",
   };
   $("[data-video]").each((i, el) => {
-    config.videoId = config.playerVars.playlist = $(el).data('id');
+    config.videoId = config.playerVars.playlist = $(el).data("id");
     let $wrap = $(el).parent();
     const player = new YT.Player(el, config);
     $wrap.find("button").on("click", (ev) => {
@@ -42,42 +42,45 @@ function onYouTubeIframeAPIReady() {
 }
 window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
 
-window.blockScroll = function() {
+window.blockScroll = function () {
   let scrollPosition = [
-    self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
-    self.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop
+    self.pageXOffset ||
+      document.documentElement.scrollLeft ||
+      document.body.scrollLeft,
+    self.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop,
   ];
   let html = $("html"); // it would make more sense to apply this to body, but IE7 won't have that
   html.data("scroll-position", scrollPosition);
   html.data("previous-overflow", html.css("overflow"));
   html.css("overflow", "hidden");
-  window.scrollTo(scrollPosition[0], scrollPosition[1]);;
-}
+  window.scrollTo(scrollPosition[0], scrollPosition[1]);
+};
 
-window.unblockScroll = function() {
+window.unblockScroll = function () {
   let html = jQuery("html");
   let scrollPosition = html.data("scroll-position");
   html.css("overflow", html.data("previous-overflow"));
-  window.scrollTo(scrollPosition[0], scrollPosition[1])
-}
+  window.scrollTo(scrollPosition[0], scrollPosition[1]);
+};
 // end
 
 // Smooth scroll to ellement
 export function scrollHeader(ev) {
   if (isMobile) {
     const scrollTop = options.header.offset().top ? true : false;
-  scrollTop
-    ? options.header.addClass("is-scroll")
-    : options.header.removeClass("is-scroll");
+    scrollTop
+      ? options.header.addClass("is-scroll")
+      : options.header.removeClass("is-scroll");
   }
 }
 
-
 // Insert iframe API YT script
 export function embedYoutube() {
-  const tag = document.createElement('script');
-  tag.src = 'https://www.youtube.com/iframe_api';
-  const firstScriptTag = document.getElementsByTagName('script')[0];
+  const tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  const firstScriptTag = document.getElementsByTagName("script")[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
 // Set aspect ratio to html video
@@ -91,12 +94,20 @@ export function setAspectRatioVideo() {
 }
 
 export function accordionMenu(ev) {
-  if (!$(ev.currentTarget).closest('.accordion__tab').hasClass('active')) {
-    $(ev.currentTarget).closest('.accordion__tab').addClass('active').find('.accordion__content').slideToggle();
+  if (!$(ev.currentTarget).closest(".accordion__tab").hasClass("active")) {
+    $(ev.currentTarget)
+      .closest(".accordion__tab")
+      .addClass("active")
+      .find(".accordion__content")
+      .slideToggle();
     // $(ev.currentTarget).closest('.accordion__tab').addClass('active').siblings('.accordion__tab.active').removeClass('active')
     // .find('.accordion__content').slideToggle();
-  }
-  else $(ev.currentTarget).closest('.accordion__tab').removeClass('active').find('.accordion__content').slideToggle();
+  } else
+    $(ev.currentTarget)
+      .closest(".accordion__tab")
+      .removeClass("active")
+      .find(".accordion__content")
+      .slideToggle();
 }
 
 // Burger sidebar
@@ -175,7 +186,9 @@ export function showPass(ev) {
 // Smooth scroll to ellement
 export function scrollTo(ev) {
   let toEl = $(ev.currentTarget).attr("href");
-  toEl ? scroll.scrollTo(toEl, -70) : scroll.scrollTo(0);
+  toEl
+    ? $("html, body").stop().animate({ scrollTop: $(toEl).offset().top })
+    : $("html, body").stop().animate({ scrollTop: 0 });
   return false;
 }
 
@@ -191,9 +204,7 @@ export function expander(ev) {
   $content.attr("aria-expanded", true);
   let autoHeight = $content.height();
   // with scroll height of scrolled element
-  $content
-    .height(curHeight)
-    .animate({ height: autoHeight }, 300);
+  $content.height(curHeight).animate({ height: autoHeight }, 300);
   $(ev.currentTarget).remove();
 }
 
@@ -203,7 +214,9 @@ export function openTab(ev) {
   const id = $(ev.currentTarget).data("target");
   const pos = $(this).position();
   if ($(this).parent().find(".tab-slider").length) {
-    $(this).parent().find(".tab-slider")
+    $(this)
+      .parent()
+      .find(".tab-slider")
       .stop()
       .css({
         left: pos.left,

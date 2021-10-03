@@ -1,0 +1,10 @@
+
+@import url("https://unpkg.com/lightgallery@1.4.0/dist/css/lightgallery.min.css");
+
+.lg-toolbar .lg-icon {
+  height: 50px;
+  border: none;
+  &:hover, &:focus {
+    color: $body-bg;
+  }
+}

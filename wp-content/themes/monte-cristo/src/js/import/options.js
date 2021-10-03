@@ -10,36 +10,44 @@ export const options = {
   },
   body: $("body"), // document.body
   header: $(".site-header"),
-  zooming: {
-    bgColor: "#0d0d0d",
-    bgOpacity: 0.5,
-    scrollThreshold: 100,
-    scaleExtra: 0.8,
-  },
-  tippy: {
-    animation: "perspective",
-    interactive: true,
-    interactiveBorder: 32,
-    trigger: "mouseenter click",
+  lightGallery: {
+    download: false
   },
   sliders: {
-    gallery: {
+    hero: {
       speed: 600,
+      loop: true,
+      effect: "fade",
+      autoplay: true,
+      fadeEffect: {
+        crossFade: true
+      },
       preloadImages: false,
-      spaceBetween: 15,
-      observer: true,
       // Enable lazy loading
       lazy: {
         loadPrevNext: true
       },
-      pagination: {
-        el: '.gallery-pagination',
-        clickable: true,
-        type: 'bullets'
+    },
+    gallery: {
+      speed: 600,
+      slidesPerView: 1,
+      centeredSlides: true,
+      spaceBetween: 30,
+      preloadImages: false,
+      lazy: {
+        loadPrevNext: true
       },
       navigation: {
-        nextEl: ".gallery-button-next",
-        prevEl: ".gallery-button-prev"
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        // when window width is >= 576px
+        992: {
+          initialSlide: 1,
+          slidesPerView: 2,
+          spaceBetween: 130,
+        },
       }
     }
   },

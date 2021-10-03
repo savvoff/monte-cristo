@@ -5,7 +5,7 @@
   */
 get_header();
 ?>
-<section class="page-section">
+<section class="page-section pt-6">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center mb-4">

@@ -1,8 +1,11 @@
+$themeColor: $secondary !default;
 @import "node_modules/swiper/swiper";
+@import "node_modules/swiper/modules/navigation/navigation";
+@import "node_modules/swiper/modules/lazy/lazy";
+
 .slider, .swiper {
   position: relative;
   width: 100%;
-  overflow: hidden;
   &-lazy {
     position: absolute;
     top: 0;
@@ -10,76 +13,127 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    @include aspect-ratio(4, 3);
-    @include media-breakpoint-up(sm) {
-      @include aspect-ratio(18, 9);
-    }
-  }  
+  }
 }
 .swiper {
+  &-slide {
+    img {
+      @include object-fit(cover, center);
+    }
+  }
   &-pagination-bullet {
     display: inline-block;
-    margin: 0 $spacer/4;
     width: 12px;
     height: 12px;
     border: $border-width solid $white;
     border-radius: 50%;
     @include transition(0.3s $ease-out-cubic);
-    .gallery & {
-      background-color: $secondary;
-    }
     &-active {
       border: $border-width solid $orange;
       background-color: $orange !important;
     }
   }
 }
-.gallery-pagination {
-  max-width: 250px;
-  margin: $spacer 0;
-  text-align: center;
-}
-.gallery-button {
-  &__group {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.hero-slider {
+  height: 400px;
+  @include media-breakpoint-up(md) {
+    height: 650px;
   }
-  &-next, &-prev {
-    cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
-    top: calc(50% - 23px);
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
     left: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 46px;
-    height: 46px;
-    svg {
-      margin: 0;
-      @include transition(0.3s $ease-out-cubic);
-    }
-    &.swiper-button-disabled {
-      opacity: 0.8;
-    }
+    width: 100%;
+    height: 100%;
+    background-color: rgba($black, 0.3);
+    z-index: 1;
+    pointer-events: none;
   }
-  &-prev {
-    @include hover() {
-      svg {
-        margin-left: $spacer/2;
-      }
-    }    
+  .swiper-slide {
+    overflow: hidden;
   }
-  &-next {
-    left: initial;
-    right: 0;
-    @include hover() {
-      svg {
-        margin-right: -$spacer/2;
-      }
-    } 
+  .swiper-slide img {
+    opacity: 0.8;
+  }
+  &__content {
+    width: 100%;
+    position: absolute;
+    @extend .top-50;
+    @extend .start-50;
+    @extend .translate-middle;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  &__title {
+    @include rfs(rem-calc(90px));
   }
 }
-.gallery-button-prev {
-  transform: scale(-1);
+.gallery-slider {
+  height: 350px;
+  @include media-breakpoint-up(md) {
+    height: 430px;
+  }
+  .swiper-slide {
+    overflow: hidden;
+    img {
+      transform: scale(1.1);
+      transition: 0.6s $ease-out-cubic;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border: $border-width solid $white;
+      opacity: 0;
+      transition: 0.3s $ease-out-cubic;
+      z-index: 1;
+    }
+    &::after {
+      content: url("../img/sprites/sprite.svg#search");
+      position: absolute;
+      top: calc(50% - #{$spacer});
+      left: calc(50% - #{$spacer});
+      width: $spacer * 2;
+      height: $spacer * 2;
+      opacity: 0;
+      transition: 0.3s $ease-out-cubic;
+    }
+    &:hover {
+      img {
+        filter: brightness(0.75);
+        transform: scale(1);
+      }
+      &::before {
+        top: $spacer;
+        bottom: $spacer;
+        left: $spacer;
+        right: $spacer;
+        opacity: 1;
+      }
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+  .swiper-button-prev {
+    left: 5%;
+  }
+  .swiper-button-next {
+    right: 5%;
+  }
+  @include media-breakpoint-up(lg) {
+    .swiper-button-prev, .swiper-button-next {
+      transform: scale(0.5);
+    }
+    .swiper-button-prev {
+      left: 23%;
+    }
+    .swiper-button-next {
+      right: 23%;
+    }
+  }
 }

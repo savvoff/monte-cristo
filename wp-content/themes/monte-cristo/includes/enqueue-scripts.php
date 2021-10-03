@@ -52,9 +52,6 @@ function footer_custom_scripts()
 {
   ?>
   <script>
-    jQuery(function($) {
-      $('[data-src]').Lazy();
-    });
     var mask = '{38}(000)000-00-00';
     var phoneMask = IMask(
       document.getElementById('phone-mask'), {

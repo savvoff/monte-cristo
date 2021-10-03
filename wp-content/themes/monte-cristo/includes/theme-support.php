@@ -42,7 +42,7 @@ if (!function_exists('custom_theme_support')) :
     add_theme_support('post-thumbnails', array('page', 'post'));
 
     // Declare WooCommerce support per @link {http://docs.woothemes.com/document/third-party-custom-theme-compatibility/}
-    add_theme_support('woocommerce');
+    // add_theme_support('woocommerce');
 
     //  Add widget support shortcodes
     add_filter('widget_text', 'do_shortcode');
@@ -60,4 +60,27 @@ if (!function_exists('custom_theme_support')) :
   }
 
   add_action('after_setup_theme', 'custom_theme_support');
+
+  function register_theme_menus()
+  {
+    register_nav_menus(array(
+      'header-left' => __('Header left'),
+      'header-right' => __('Header right'),
+      'footer' => __('Footer')
+    ));
+  }
+  add_action('after_setup_theme', 'register_theme_menus');
+
+  function wp_nav_menu_objects($items, $args)
+  {
+    if ($args->theme_location == 'header-right') {
+      // loop
+      $items .= '<li class="menu-item lang"><a href="/en/page/about">EN</a></li>';
+    }
+    // return
+    return $items;
+  }
+  add_filter('wp_nav_menu_items', 'wp_nav_menu_objects', 10, 2);
+
+
 endif;

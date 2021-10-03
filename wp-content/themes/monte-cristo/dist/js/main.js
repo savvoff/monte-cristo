@@ -47,8 +47,8 @@ function onYouTubeIframeAPIReady() {
   }
 
   var config = {
-    height: '100%',
-    width: '100%',
+    height: "100%",
+    width: "100%",
     playerVars: {
       autoplay: 0,
       loop: 1,
@@ -56,17 +56,17 @@ function onYouTubeIframeAPIReady() {
       disablekb: 1,
       fs: 0,
       rel: 0,
-      playlist: '',
+      playlist: "",
       showinfo: 0,
       enablejsapi: 1,
       autohide: 0,
       modestbranding: 1,
-      wmode: 'opaque'
+      wmode: "opaque"
     },
-    videoId: ''
+    videoId: ""
   };
   $("[data-video]").each(function (i, el) {
-    config.videoId = config.playerVars.playlist = $(el).data('id');
+    config.videoId = config.playerVars.playlist = $(el).data("id");
     var $wrap = $(el).parent();
     var player = new YT.Player(el, config);
     $wrap.find("button").on("click", function (ev) {
@@ -86,7 +86,6 @@ window.blockScroll = function () {
   html.data("previous-overflow", html.css("overflow"));
   html.css("overflow", "hidden");
   window.scrollTo(scrollPosition[0], scrollPosition[1]);
-  ;
 };
 
 window.unblockScroll = function () {
@@ -106,9 +105,9 @@ function scrollHeader(ev) {
 } // Insert iframe API YT script
 
 function embedYoutube() {
-  var tag = document.createElement('script');
-  tag.src = 'https://www.youtube.com/iframe_api';
-  var firstScriptTag = document.getElementsByTagName('script')[0];
+  var tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName("script")[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 } // Set aspect ratio to html video
 
@@ -120,10 +119,10 @@ function setAspectRatioVideo() {
   }
 }
 function accordionMenu(ev) {
-  if (!$(ev.currentTarget).closest('.accordion__tab').hasClass('active')) {
-    $(ev.currentTarget).closest('.accordion__tab').addClass('active').find('.accordion__content').slideToggle(); // $(ev.currentTarget).closest('.accordion__tab').addClass('active').siblings('.accordion__tab.active').removeClass('active')
+  if (!$(ev.currentTarget).closest(".accordion__tab").hasClass("active")) {
+    $(ev.currentTarget).closest(".accordion__tab").addClass("active").find(".accordion__content").slideToggle(); // $(ev.currentTarget).closest('.accordion__tab').addClass('active').siblings('.accordion__tab.active').removeClass('active')
     // .find('.accordion__content').slideToggle();
-  } else $(ev.currentTarget).closest('.accordion__tab').removeClass('active').find('.accordion__content').slideToggle();
+  } else $(ev.currentTarget).closest(".accordion__tab").removeClass("active").find(".accordion__content").slideToggle();
 } // Burger sidebar
 
 function showMenu() {
@@ -202,7 +201,11 @@ function showPass(ev) {
 
 function scrollTo(ev) {
   var toEl = $(ev.currentTarget).attr("href");
-  toEl ? scroll.scrollTo(toEl, -70) : scroll.scrollTo(0);
+  toEl ? $("html, body").stop().animate({
+    scrollTop: $(toEl).offset().top
+  }) : $("html, body").stop().animate({
+    scrollTop: 0
+  });
   return false;
 } // Universal Selector
 
@@ -459,36 +462,44 @@ var options = {
   body: $("body"),
   // document.body
   header: $(".site-header"),
-  zooming: {
-    bgColor: "#0d0d0d",
-    bgOpacity: 0.5,
-    scrollThreshold: 100,
-    scaleExtra: 0.8
-  },
-  tippy: {
-    animation: "perspective",
-    interactive: true,
-    interactiveBorder: 32,
-    trigger: "mouseenter click"
+  lightGallery: {
+    download: false
   },
   sliders: {
-    gallery: {
+    hero: {
       speed: 600,
+      loop: true,
+      effect: "fade",
+      autoplay: true,
+      fadeEffect: {
+        crossFade: true
+      },
       preloadImages: false,
-      spaceBetween: 15,
-      observer: true,
       // Enable lazy loading
       lazy: {
         loadPrevNext: true
-      },
-      pagination: {
-        el: '.gallery-pagination',
-        clickable: true,
-        type: 'bullets'
+      }
+    },
+    gallery: {
+      speed: 600,
+      slidesPerView: 1,
+      centeredSlides: true,
+      spaceBetween: 30,
+      preloadImages: false,
+      lazy: {
+        loadPrevNext: true
       },
       navigation: {
-        nextEl: ".gallery-button-next",
-        prevEl: ".gallery-button-prev"
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      breakpoints: {
+        // when window width is >= 576px
+        992: {
+          initialSlide: 1,
+          slidesPerView: 2,
+          spaceBetween: 130
+        }
       }
     }
   }
@@ -642,6 +653,142 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 
+/***/ }),
+
+/***/ "./wp-content/themes/monte-cristo/src/js/import/sliders.js":
+/*!*****************************************************************!*\
+  !*** ./wp-content/themes/monte-cristo/src/js/import/sliders.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _options__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./options */ "./wp-content/themes/monte-cristo/src/js/import/options.js");
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
+
+
+swiper__WEBPACK_IMPORTED_MODULE_1__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_1__.Autoplay, swiper__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper__WEBPACK_IMPORTED_MODULE_1__.Lazy, swiper__WEBPACK_IMPORTED_MODULE_1__.EffectFade]); // Sliders
+
+if ($(".hero-slider").length) {
+  var heroSwiper = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"](".hero-slider", _options__WEBPACK_IMPORTED_MODULE_0__.options.sliders.hero);
+  heroSwiper.on("progress", function (slider, progress) {
+    for (var i = 0; i < slider.slides.length; i++) {
+      var slideProgress = slider.slides[i].progress,
+          innerOffset = slider.width * 0.25,
+          innerTranslate = slideProgress * innerOffset;
+      slider.slides[i].querySelector("img").style.transform = "translate3d(".concat(innerTranslate, "px, 0, 0)");
+    }
+  });
+  heroSwiper.on("setTransition", function (slider, transition) {
+    for (var i = 0; i < slider.slides.length; i++) {
+      slider.slides[i].style.transition = "".concat(transition, "ms");
+      slider.slides[i].querySelector("img").style.transition = "".concat(transition, "ms");
+    }
+  });
+  heroSwiper.on("touchStart", function (slider, event) {
+    for (var i = 0; i < slider.slides.length; i++) {
+      slider.slides[i].style.transition = "";
+    }
+  });
+}
+
+if ($(".gallery-slider").length) {
+  var gallerySwiper = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"](".gallery-slider", _options__WEBPACK_IMPORTED_MODULE_0__.options.sliders.gallery);
+}
+
+/***/ }),
+
+/***/ "./wp-content/themes/monte-cristo/src/js/index.js":
+/*!********************************************************!*\
+  !*** ./wp-content/themes/monte-cristo/src/js/index.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _import_options__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./import/options */ "./wp-content/themes/monte-cristo/src/js/import/options.js");
+/* harmony import */ var _import_sliders__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./import/sliders */ "./wp-content/themes/monte-cristo/src/js/import/sliders.js");
+/* harmony import */ var _import_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./import/helpers */ "./wp-content/themes/monte-cristo/src/js/import/helpers.js");
+/* harmony import */ var lightgallery_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lightgallery.js */ "./node_modules/lightgallery.js/lib/js/lightgallery.js");
+/* harmony import */ var lightgallery_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lightgallery_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _import_selectbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./import/selectbox */ "./wp-content/themes/monte-cristo/src/js/import/selectbox.js");
+/* harmony import */ var _import_selectbox__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_import_selectbox__WEBPACK_IMPORTED_MODULE_4__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+ // import objectFitImages from "object-fit-images";
+
+ // import tippy from "tippy.js";
+// Custom plugins
+
+ // Constants
+
+var PATH = themePath;
+
+var App = /*#__PURE__*/function () {
+  function App() {
+    _classCallCheck(this, App);
+
+    this.addEventListeners();
+    (0,_import_helpers__WEBPACK_IMPORTED_MODULE_2__.setFullHeight)();
+    $("#svg-sprites").load("".concat(PATH, "/dist/img/sprites/sprite.svg")); // setAspectRatioVideo();
+
+    (0,_import_helpers__WEBPACK_IMPORTED_MODULE_2__.embedYoutube)();
+    lightGallery($("#lightgallery").get(0), _import_options__WEBPACK_IMPORTED_MODULE_0__.options.lightGallery); // new Modal("[data-modal]");
+    // new Timer("[data-timer]");
+    // End Loader dev
+    // setProgress();
+  }
+
+  _createClass(App, [{
+    key: "preloadSession",
+    value: function preloadSession() {
+      if (!parseInt(sessionStorage.getItem("loader"))) {
+        setProgress(true);
+        $(".preloader").addClass("loading");
+        sessionStorage.setItem("loader", 1);
+      }
+    }
+  }, {
+    key: "addEventListeners",
+    value: function addEventListeners() {
+      $(window).on("scroll", function () {// getPageYScroll();
+        // scrollHeader();
+      });
+      $(window).on("load", function () {
+        // End Loader prod
+        // setProgress();
+        // scrollHeader();
+        console.log("App init\n");
+      });
+      $(window).on("resize", function () {
+        (0,_import_helpers__WEBPACK_IMPORTED_MODULE_2__.setFullHeight)(); // calcWinsize();
+      }); // Elements events
+      // $(".tab__link").on("click", openTab);
+      // $(".form-control, .form-check input").on(
+      //   "blur input focus change",
+      //   fillInput
+      // );
+      // $(".accordion__tab.active").find(".accordion__content").slideToggle();
+      // $(".accordion__group").on("click", accordionMenu);
+      // $(".btn-expand").on("click", expander);
+      // end
+
+      $(".burger-container").on("click", _import_helpers__WEBPACK_IMPORTED_MODULE_2__.showMenu);
+      $(".to-top, a[href^='#']").on("click", _import_helpers__WEBPACK_IMPORTED_MODULE_2__.scrollTo); // $(".page-langs").on("click", selector);
+    }
+  }]);
+
+  return App;
+}();
+
+new App();
+
 /***/ })
 
 /******/ 	});
@@ -664,13 +811,48 @@ document.addEventListener("DOMContentLoaded", function (event) {
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -711,100 +893,67 @@ document.addEventListener("DOMContentLoaded", function (event) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"main": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkIds[i]] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkmonte_cristo"] = self["webpackChunkmonte_cristo"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
-/*!********************************************************!*\
-  !*** ./wp-content/themes/monte-cristo/src/js/index.js ***!
-  \********************************************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _import_options__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./import/options */ "./wp-content/themes/monte-cristo/src/js/import/options.js");
-/* harmony import */ var _import_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./import/helpers */ "./wp-content/themes/monte-cristo/src/js/import/helpers.js");
-/* harmony import */ var _import_selectbox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./import/selectbox */ "./wp-content/themes/monte-cristo/src/js/import/selectbox.js");
-/* harmony import */ var _import_selectbox__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_import_selectbox__WEBPACK_IMPORTED_MODULE_2__);
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
- // import "./import/sliders";
-
- // import objectFitImages from "object-fit-images";
-// import Zooming from "zooming";
-// import tippy from "tippy.js";
-// Custom plugins
-
- // Constants
-
-var PATH = themePath;
-
-var App = /*#__PURE__*/function () {
-  function App() {
-    _classCallCheck(this, App);
-
-    // this.preloadSession();
-    this.addEventListeners();
-    (0,_import_helpers__WEBPACK_IMPORTED_MODULE_1__.setFullHeight)();
-    $("#svg-sprites").load("".concat(PATH, "/dist/img/sprites/sprite.svg")); // tippy("[data-tippy-content]", options.tippy);
-    // setAspectRatioVideo();
-
-    (0,_import_helpers__WEBPACK_IMPORTED_MODULE_1__.embedYoutube)(); // new Modal("[data-modal]");
-    // new Timer("[data-timer]");
-    // const zooming = new Zooming(options.zooming);
-    // zooming.overlay.parent = $("[data-scroll-container]").get(0); // change el to append overlay
-    // zooming.listen("[data-zoom], article img, .article img");
-    // End Loader dev
-    // setProgress();
-  }
-
-  _createClass(App, [{
-    key: "preloadSession",
-    value: function preloadSession() {
-      if (!parseInt(sessionStorage.getItem("loader"))) {
-        setProgress(true);
-        $(".preloader").addClass("loading");
-        sessionStorage.setItem("loader", 1);
-      }
-    }
-  }, {
-    key: "addEventListeners",
-    value: function addEventListeners() {
-      $(window).on("scroll", function () {// getPageYScroll();
-        // scrollHeader();
-      });
-      $(window).on("load", function () {
-        // End Loader prod
-        // setProgress();
-        // scrollHeader();
-        console.log("App init\n");
-      });
-      $(window).on("resize", function () {
-        (0,_import_helpers__WEBPACK_IMPORTED_MODULE_1__.setFullHeight)(); // calcWinsize();
-      }); // Elements events
-      // $(".tab__link").on("click", openTab);
-      // $(".form-control, .form-check input").on(
-      //   "blur input focus change",
-      //   fillInput
-      // );
-      // $(".accordion__tab.active").find(".accordion__content").slideToggle();
-      // $(".accordion__group").on("click", accordionMenu);
-      // $(".btn-expand").on("click", expander);
-      // end
-
-      $(".burger-container").on("click", _import_helpers__WEBPACK_IMPORTED_MODULE_1__.showMenu);
-      $(".to-top, a[href^='#']").on("click", _import_helpers__WEBPACK_IMPORTED_MODULE_1__.scrollTo); // $(".page-langs").on("click", selector);
-    }
-  }]);
-
-  return App;
-}();
-
-new App();
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendor"], () => (__webpack_require__("./wp-content/themes/monte-cristo/src/js/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
 /******/ })()
 ;
 //# sourceMappingURL=main.js.map

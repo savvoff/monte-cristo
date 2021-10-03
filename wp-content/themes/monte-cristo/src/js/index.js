@@ -1,5 +1,5 @@
 import { options } from "./import/options";
-// import "./import/sliders";
+import "./import/sliders";
 import {
   embedYoutube,
   // accordionMenu,
@@ -19,7 +19,7 @@ import {
   // customCursor,
 } from "./import/helpers";
 // import objectFitImages from "object-fit-images";
-// import Zooming from "zooming";
+import "lightgallery.js";
 // import tippy from "tippy.js";
 
 // Custom plugins
@@ -30,19 +30,15 @@ const PATH = themePath;
 
 class App {
   constructor() {
-    // this.preloadSession();
     this.addEventListeners();
     setFullHeight();
     $("#svg-sprites").load(`${PATH}/dist/img/sprites/sprite.svg`);
-    // tippy("[data-tippy-content]", options.tippy);
     // setAspectRatioVideo();
     embedYoutube();
+    lightGallery($("#lightgallery").get(0), options.lightGallery);
 
     // new Modal("[data-modal]");
     // new Timer("[data-timer]");
-    // const zooming = new Zooming(options.zooming);
-    // zooming.overlay.parent = $("[data-scroll-container]").get(0); // change el to append overlay
-    // zooming.listen("[data-zoom], article img, .article img");
 
     // End Loader dev
     // setProgress();

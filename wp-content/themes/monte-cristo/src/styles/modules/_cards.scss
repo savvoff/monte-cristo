@@ -1,0 +1,19 @@
+.card {
+  position: relative;
+  color: $white;
+  background-color: $body-bg;
+  transition: 0.3s $ease-out-cubic;
+  figure {
+    @include object-fit(cover, center);
+  }
+  &:hover {
+    color: $body-bg;
+    background-color: $white;
+    .btn {
+      color: $body-color;
+    }
+  }
+  .btn {
+    color: $body-bg;
+  }
+}
