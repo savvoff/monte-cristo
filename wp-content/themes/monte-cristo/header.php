@@ -36,7 +36,7 @@
   <!-- Sprite end -->
 
   <header class="site-header py-2">
-    <button id="nav-toggle" class="btn burger-container d-lg-none">
+    <button id="nav-toggle" class="btn burger-container bg-transparent d-lg-none">
       <div class="burger-bar"></div>
     </button>
     <div class="site-navigation content-wrap">
