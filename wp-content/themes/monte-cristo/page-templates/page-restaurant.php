@@ -23,19 +23,21 @@ get_header();
   <div class="container">
     <div class="row py-4 py-lg-5">
       <div class="d-flex flex-wrap justify-content-center col">
-        <?php foreach (get_field('buttons') as $button): ?>
+        <?php foreach ((array)get_field('buttons') as $button):
+          if ($button): ?>
         <a class="btn btn-outline-middle btn-link text-uppercase text-dark m-2" href="<?php echo esc_url($button['link']['url']); ?>"><?php esc_html_e($button['link']['title']); ?></a>
-        <?php endforeach; ?>
+        <?php endif; endforeach; ?>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10 bg-lighten-dark">
         <div class="p-3">
           <div class="row border border-white px-3 px-lg-5 pt-5 mb-3">
-            <?php foreach (get_field('advantages') as $advantage): ?>
+            <?php foreach ((array)get_field('advantages') as $advantage): ?>
             <div class="col-12 col-sm-6 col-lg-4">
               <div class="d-flex mb-5">
-                <img class="icon-contact me-3" src="<?php esc_attr_e($advantage['image']['url']); ?>" alt="<?php esc_attr_e($advantage['image']['alt']); ?>">
+                <!-- <img class="icon-contact me-3" src="<?php //esc_attr_e($advantage['image']['url']); ?>" alt="<?php //esc_attr_e($advantage['image']['alt']); ?>"> -->
+                <span class="text-secondary m-1"><?php echo $advantage['icon']; ?></span>
                 <div class="py-1 px-2">
                   <h5 class="fw-normal text-uppercase"><?php esc_html_e($advantage['title']); ?></h5>
                   <p class="text-gray m-0"><?php esc_html_e($advantage['desc']); ?></p>
@@ -57,7 +59,7 @@ get_header();
     </div>
   </div>
   <div class="container">
-    <div id="gallery" class="row justify-content-center py-4 py-lg-5">
+    <div id="gallery" class="row justify-content-center py-5">
       <div class="col-12 col-lg-10 text-center">
         <h2 class="page-section__title is-inverted"><?php the_field('gallery_title'); ?></h2>
         <p class="fw-normal lh-lg w-75 mx-auto"><small><?php the_field('gallery_caption'); ?></small></p>

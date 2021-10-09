@@ -16,8 +16,13 @@
     <figure class="ratio ratio-5x3">
       <img data-src="<?php echo esc_url($args['img']); ?>" data-placeholder-background="dimgray" alt="<?php bloginfo('name'); ?>">
     </figure>
-    <h3 class="text-reset lh-1"><?php echo $args['title']; ?></h3>
-    <p class="h6 text-reset fw-normal"><?php echo $args['subtitle']; ?></p>
-    <a class="btn btn-link btn-outline-dark stretched-link" href="<?php echo esc_url($args['link']); ?>"><?php _e('Read more'); ?></a>
+    <h3 class="text-reset lh-sm"><?php echo $args['title']; ?></h3>
+    <p class="h6 hstack text-reset fw-normal"><?php
+    foreach ((array)$args['categories'] as $key => $cat) {
+      echo $key ?  '<span class="vr mx-2"></span>' . $cat->name : $cat->name;
+    }
+    //echo $args['subtitle'];
+    ?></p>
+    <a class="btn btn-link btn-outline-dark stretched-link" href="<?php echo esc_url($args['link']); ?>"><?php the_field('read_more', 'option'); ?></a>
   </div>
 </div>

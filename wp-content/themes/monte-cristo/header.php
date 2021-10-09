@@ -70,4 +70,4 @@
       </div>
     </div>
   </header>
-  <main class="wrapper user-select-none">
+  <main class="wrapper">

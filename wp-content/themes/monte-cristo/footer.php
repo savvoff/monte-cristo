@@ -1,14 +1,16 @@
+  <?php $footer = get_field('footer', 'option'); ?>
   <footer class="site-footer py-4 pt-lg-6">
     <div class="container">
       <div class="row mb-5">
         <div class="col-12 col-lg-5">
+        <?php $contact_left = $footer['contact_left']; ?>
           <div class="d-flex mb-4">
-            <svg class="icon-footer">
-              <use xlink:href="#chatting"></use>
-            </svg>
+            <span class="icon-footer text-secondary">
+              <?php echo $contact_left['icon']; ?>
+            </span>
             <div class="text-uppercase ms-4">
-              <p class="h3 lh-1">ПОДЕЛИТЕСЬ СВОИМИ ВПЕЧАТЛЕНИЯМИ</p>
-              <a class="border-bottom py-2" href="">ОСТАВИТЬ ОТЗЫВ</a>
+              <p class="h3 lh-sm"><?php echo $contact_left['title']; ?></p>
+              <a class="border-bottom py-2" href="<?php echo $contact_left['link']['url']; ?>" rel="noindex, nofollow" target="<?php echo $contact_left['link']['target'] ?: '_self' ?>"><?php echo $contact_left['link']['title']; ?></a>
             </div>
           </div>
         </div>
@@ -16,13 +18,15 @@
           <div class="vr h3"></div>
         </div>
         <div class="col-12 col-lg-5">
+        <?php $contact_right = $footer['contact_right']; ?>
           <div class="d-flex justify-content-lg-end mb-4">
-            <svg class="icon-footer">
-              <use xlink:href="#email"></use>
-            </svg>
+            <span class="icon-footer text-secondary">
+            <?php echo $contact_right['icon']; ?>
+            </span>
             <div class="text-uppercase ms-4">
-              <p class="h3 lh-1">ПОДПИСКА НА НОВОСТИ</p>
-              <a class="border-bottom py-2" href="">ПОДПИСАТЬСЯ НА РАССЫЛКУ</a>
+              <p class="h3 lh-sm"><?php echo $contact_right['title']; ?></p>
+              <a class="border-bottom py-2" href="<?php echo $contact_right['link']['url']; ?>" rel="noindex, nofollow" target="<?php echo $contact_right['link']['target'] ?: '_self' ?>"><?php echo $contact_right['link']['title']; ?></a>
+
             </div>
           </div>
         </div>
@@ -38,6 +42,7 @@
       </div>
     </div>
   </footer>
+  <button class="btn-to-top h3" type="button" role="button" aria-describedby="To top button"></button>
 </main>
 <?php wp_footer(); ?>
 </body>

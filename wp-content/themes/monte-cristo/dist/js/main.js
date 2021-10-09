@@ -462,6 +462,7 @@ var options = {
   body: $("body"),
   // document.body
   header: $(".site-header"),
+  btnToTop: $(".btn-to-top"),
   lightGallery: {
     download: false
   },
@@ -754,8 +755,14 @@ var App = /*#__PURE__*/function () {
   }, {
     key: "addEventListeners",
     value: function addEventListeners() {
-      $(window).on("scroll", function () {// getPageYScroll();
-        // scrollHeader();
+      $(window).on("scroll", function (ev) {
+        var $btnToTop = _import_options__WEBPACK_IMPORTED_MODULE_0__.options.btnToTop;
+
+        if ($(ev.currentTarget).scrollTop() >= $(ev.currentTarget).height()) {
+          $btnToTop.addClass("is-show");
+        } else {
+          $btnToTop.removeClass("is-show");
+        }
       });
       $(window).on("load", function () {
         // End Loader prod
@@ -766,18 +773,14 @@ var App = /*#__PURE__*/function () {
       $(window).on("resize", function () {
         (0,_import_helpers__WEBPACK_IMPORTED_MODULE_2__.setFullHeight)(); // calcWinsize();
       }); // Elements events
-      // $(".tab__link").on("click", openTab);
       // $(".form-control, .form-check input").on(
       //   "blur input focus change",
       //   fillInput
       // );
-      // $(".accordion__tab.active").find(".accordion__content").slideToggle();
-      // $(".accordion__group").on("click", accordionMenu);
-      // $(".btn-expand").on("click", expander);
       // end
 
       $(".burger-container").on("click", _import_helpers__WEBPACK_IMPORTED_MODULE_2__.showMenu);
-      $(".to-top, a[href^='#']").on("click", _import_helpers__WEBPACK_IMPORTED_MODULE_2__.scrollTo); // $(".page-langs").on("click", selector);
+      $(".btn-to-top, a[href^='#']").on("click", _import_helpers__WEBPACK_IMPORTED_MODULE_2__.scrollTo);
     }
   }]);
 

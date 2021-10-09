@@ -27,6 +27,11 @@
   }
   &-default {
     color: $body-bg;
+    .table-responsive:last-child {
+      margin-top: $spacer * 2;
+      padding-top: $spacer * 2;
+      border-top: $border-width solid $secondary;
+    }
   }
   &-restaurant, &-news {
     margin-top: -8rem;
@@ -42,6 +47,10 @@
     min-width: 24px;
     min-height: 24px;
   }
+}
+
+.fas, .far, .fab {
+  font-size: $font-size-lg;
 }
 
 
@@ -67,3 +76,27 @@
   // Keep them at most 100% wide
   @include img-fluid();
 }
+
+// Custom
+
+.grecaptcha-badge {
+  @extend .visually-hidden;
+  right: initial !important;
+}
+
+.wpcf7 {
+  label {
+    display: block;
+  }
+  &-form-control:not([type="submit"]) {
+    @extend .w-100;
+    & + span {
+      @extend .small;
+    }
+  }
+  &-response-output {
+    @extend .w-75;
+    @extend .mx-auto;
+  }
+}
+

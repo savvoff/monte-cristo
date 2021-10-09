@@ -25,6 +25,20 @@ get_header();
       <div class="col-12">
         <div class="pt-4 pt-lg-6">
           <h2 class="page-section__title is-inverted text-center"><?php the_title(); ?></h2>
+
+          <?php $content = get_the_content();
+           if ($content): ?>
+            <div class="bg-lighten-dark mb-5">
+              <div class="p-3">
+                <div class="border border-white py-5">
+                  <article class="text-gray">
+                    <?php echo wpautop($content); ?>
+                  </article>
+                </div>
+              </div>
+            </div>
+          <?php endif; ?>
+
           <div class="row">
           <?php
           foreach (get_field('restaurants') as $card) {

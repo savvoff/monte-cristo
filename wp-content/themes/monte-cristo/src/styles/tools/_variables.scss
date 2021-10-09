@@ -165,7 +165,7 @@ $grid-gutter-width: 30px !default;
 $grid-row-columns: 6 !default;
 // Components
 //
-$line-height-base: 1.4 !default;
+$line-height-base: 1.5 !default;
 $line-height-lg: 2 !default;
 $line-height-sm: 1.2 !default;
 
@@ -426,8 +426,9 @@ $nav-link-padding-x: 1.25rem !default;
 $table-cell-padding: 0.75rem !default;
 $table-cell-padding-sm: 0.3rem !default;
 
-$table-color: $body-color !default;
+$table-color: $body-bg !default;
 $table-bg: null !default;
-$table-accent-bg: $gray-200 !default;
+$table-accent-bg: transparent !default;
+$table-group-separator-color: transparent !default;
 
 @import "node_modules/bootstrap/scss/variables";

@@ -34,7 +34,7 @@ $themeColor: $secondary !default;
     }
   }
 }
-.hero-slider {
+.hero-slider, .slider {
   height: 400px;
   @include media-breakpoint-up(md) {
     height: 650px;

@@ -12,7 +12,6 @@ import {
   // openTab,
   showMenu,
   // setProgress,
-  // scrollHeader,
   // setAspectRatioVideo,
   // Modal,
   // Timer,
@@ -56,9 +55,13 @@ class App {
     }
   }
   addEventListeners() {
-    $(window).on("scroll", () => {
-      // getPageYScroll();
-      // scrollHeader();
+    $(window).on("scroll", (ev) => {
+      const $btnToTop = options.btnToTop;
+      if ($(ev.currentTarget).scrollTop() >= $(ev.currentTarget).height()) {
+        $btnToTop.addClass("is-show");
+      } else {
+        $btnToTop.removeClass("is-show");
+      }
     });
 
     $(window).on("load", () => {
@@ -74,19 +77,14 @@ class App {
     });
 
     // Elements events
-    // $(".tab__link").on("click", openTab);
     // $(".form-control, .form-check input").on(
     //   "blur input focus change",
     //   fillInput
     // );
-    // $(".accordion__tab.active").find(".accordion__content").slideToggle();
-    // $(".accordion__group").on("click", accordionMenu);
 
-    // $(".btn-expand").on("click", expander);
     // end
     $(".burger-container").on("click", showMenu);
-    $(".to-top, a[href^='#']").on("click", scrollTo);
-    // $(".page-langs").on("click", selector);
+    $(".btn-to-top, a[href^='#']").on("click", scrollTo);
   }
 }
 

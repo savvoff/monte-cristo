@@ -25,6 +25,7 @@ get_header();
       <div class="col-12">
         <div class="pt-4 pt-lg-6">
           <h2 class="page-section__title is-inverted text-center"><?php the_field('text_above_news', 'option') ?></h2>
+
           <div class="row g-0">
           <?php
           $args = array(
@@ -37,6 +38,7 @@ get_header();
             get_template_part('page-parts/part', 'card', array(
               'title' => get_the_title(),
               'subtitle' => get_the_excerpt(),
+              'categories' => get_categories(),
               'img' => get_the_post_thumbnail_url(),
               'link' => get_permalink()
             ));

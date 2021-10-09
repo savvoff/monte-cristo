@@ -55,3 +55,5 @@ function mc_custom_redirect()
   }
 }
 add_action('template_redirect', 'mc_custom_redirect', 99);
+
+add_filter('ACFFA_always_enqueue_fa', '__return_true');

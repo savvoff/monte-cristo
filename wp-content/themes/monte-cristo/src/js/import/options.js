@@ -10,6 +10,7 @@ export const options = {
   },
   body: $("body"), // document.body
   header: $(".site-header"),
+  btnToTop: $(".btn-to-top"),
   lightGallery: {
     download: false
   },
