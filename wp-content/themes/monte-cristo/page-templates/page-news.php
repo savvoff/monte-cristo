@@ -11,10 +11,10 @@ get_header();
       <div class="col-12">
         <?php
           get_template_part('page-parts/part', 'slider', array(
-            'slides' => array(),
-            'title' => 'Lorem ipsum',
-            'subtitle' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero numquam officia quod.',
-            'badge' => null
+            'slides' => get_field('slider'),
+            'title' => get_field('title'),
+            'subtitle' => get_field('subtitle'),
+            'badge' => get_field('badge')
           ));
         ?>
       </div>
@@ -24,15 +24,24 @@ get_header();
     <div class="row">
       <div class="col-12">
         <div class="pt-4 pt-lg-6">
-          <h2 class="page-section__title is-inverted text-center">Lorem, ipsum.</h2>
+          <h2 class="page-section__title is-inverted text-center"><?php the_field('text_above_news', 'option') ?></h2>
           <div class="row g-0">
           <?php
-          for ($i = 0; $i < 9; $i++) {
+          $args = array(
+            'numberposts' => -1,
+            'post_type'   => 'post',
+          );
+          $posts = get_posts($args);
+          foreach ($posts as $post) {
+            setup_postdata($post);
             get_template_part('page-parts/part', 'card', array(
-              'title' => 'Lorem ipsum dolor sit amet consectetur.',
-              'subtitle' => 'Lorem ipsum'
+              'title' => get_the_title(),
+              'subtitle' => get_the_excerpt(),
+              'img' => get_the_post_thumbnail_url(),
+              'link' => get_permalink()
             ));
-          } ?>
+          }
+          wp_reset_postdata(); ?>
           </div>
         </div>
       </div>

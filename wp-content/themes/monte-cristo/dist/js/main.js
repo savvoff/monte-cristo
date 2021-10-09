@@ -473,11 +473,6 @@ var options = {
       autoplay: true,
       fadeEffect: {
         crossFade: true
-      },
-      preloadImages: false,
-      // Enable lazy loading
-      lazy: {
-        loadPrevNext: true
       }
     },
     gallery: {
@@ -485,10 +480,6 @@ var options = {
       slidesPerView: 1,
       centeredSlides: true,
       spaceBetween: 30,
-      preloadImages: false,
-      lazy: {
-        loadPrevNext: true
-      },
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
@@ -667,7 +658,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
 
 
-swiper__WEBPACK_IMPORTED_MODULE_1__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_1__.Autoplay, swiper__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper__WEBPACK_IMPORTED_MODULE_1__.Lazy, swiper__WEBPACK_IMPORTED_MODULE_1__.EffectFade]); // Sliders
+swiper__WEBPACK_IMPORTED_MODULE_1__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_1__.Autoplay, swiper__WEBPACK_IMPORTED_MODULE_1__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper__WEBPACK_IMPORTED_MODULE_1__.EffectFade]); // Sliders
 
 if ($(".hero-slider").length) {
   var heroSwiper = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"](".hero-slider", _options__WEBPACK_IMPORTED_MODULE_0__.options.sliders.hero);
@@ -711,8 +702,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _import_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./import/helpers */ "./wp-content/themes/monte-cristo/src/js/import/helpers.js");
 /* harmony import */ var lightgallery_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lightgallery.js */ "./node_modules/lightgallery.js/lib/js/lightgallery.js");
 /* harmony import */ var lightgallery_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lightgallery_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _import_selectbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./import/selectbox */ "./wp-content/themes/monte-cristo/src/js/import/selectbox.js");
-/* harmony import */ var _import_selectbox__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_import_selectbox__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var lozad__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lozad */ "./node_modules/lozad/dist/lozad.min.js");
+/* harmony import */ var lozad__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lozad__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _import_selectbox__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./import/selectbox */ "./wp-content/themes/monte-cristo/src/js/import/selectbox.js");
+/* harmony import */ var _import_selectbox__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_import_selectbox__WEBPACK_IMPORTED_MODULE_5__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -723,8 +716,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
  // import objectFitImages from "object-fit-images";
 
- // import tippy from "tippy.js";
-// Custom plugins
+
+ // Custom plugins
 
  // Constants
 
@@ -738,6 +731,10 @@ var App = /*#__PURE__*/function () {
     (0,_import_helpers__WEBPACK_IMPORTED_MODULE_2__.setFullHeight)();
     $("#svg-sprites").load("".concat(PATH, "/dist/img/sprites/sprite.svg")); // setAspectRatioVideo();
 
+    var el = document.querySelectorAll("img");
+    var observer = lozad__WEBPACK_IMPORTED_MODULE_4___default()(el); // passing a `NodeList` (e.g. `document.querySelectorAll()`) is also valid
+
+    observer.observe();
     (0,_import_helpers__WEBPACK_IMPORTED_MODULE_2__.embedYoutube)();
     lightGallery($("#lightgallery").get(0), _import_options__WEBPACK_IMPORTED_MODULE_0__.options.lightGallery); // new Modal("[data-modal]");
     // new Timer("[data-timer]");

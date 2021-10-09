@@ -1,7 +1,7 @@
 .wrapper {
   @extend .min-vh-100;
   @extend .vstack;
-  padding-top: 7rem;
+  padding-top: 8rem;
 }
 
 .page {
@@ -28,8 +28,11 @@
   &-default {
     color: $body-bg;
   }
-  &-restaurant {
-    margin-top: -7rem;
+  &-restaurant, &-news {
+    margin-top: -8rem;
+    article * {
+      color: $gray-500;
+    }
   }
 }
 .icon {

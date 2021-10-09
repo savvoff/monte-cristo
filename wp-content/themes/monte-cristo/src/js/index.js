@@ -20,7 +20,7 @@ import {
 } from "./import/helpers";
 // import objectFitImages from "object-fit-images";
 import "lightgallery.js";
-// import tippy from "tippy.js";
+import lozad from "lozad";
 
 // Custom plugins
 import "./import/selectbox";
@@ -34,7 +34,12 @@ class App {
     setFullHeight();
     $("#svg-sprites").load(`${PATH}/dist/img/sprites/sprite.svg`);
     // setAspectRatioVideo();
+    const el = document.querySelectorAll("img");
+    const observer = lozad(el); // passing a `NodeList` (e.g. `document.querySelectorAll()`) is also valid
+    observer.observe();
+
     embedYoutube();
+
     lightGallery($("#lightgallery").get(0), options.lightGallery);
 
     // new Modal("[data-modal]");

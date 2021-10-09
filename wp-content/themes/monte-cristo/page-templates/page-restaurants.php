@@ -9,10 +9,12 @@ get_header();
   <div class="container-fluid p-0">
     <div class="row">
       <div class="col-12">
-        <?php
+      <?php
           get_template_part('page-parts/part', 'slider', array(
-            'slides' => array(),
-            'badge' => null
+            'slides' => get_field('slider'),
+            'title' => get_field('title'),
+            'subtitle' => get_field('subtitle'),
+            'badge' => get_field('badge')
           ));
         ?>
       </div>
@@ -22,13 +24,15 @@ get_header();
     <div class="row">
       <div class="col-12">
         <div class="pt-4 pt-lg-6">
-          <h2 class="page-section__title is-inverted text-center">Lorem, ipsum.</h2>
+          <h2 class="page-section__title is-inverted text-center"><?php the_title(); ?></h2>
           <div class="row">
           <?php
-          for ($i = 0; $i < 8; $i++) {
+          foreach (get_field('restaurants') as $card) {
             get_template_part('page-parts/part', 'card-alt', array(
-              'title' => 'Lorem ipsum dolor',
-              'subtitle' => 'Lorem ipsum'
+              'img' => $card['image'],
+              'title' => $card['title'],
+              'subtitle' => $card['subtitle'],
+              'link' => $card['link'],
             ));
           } ?>
           </div>

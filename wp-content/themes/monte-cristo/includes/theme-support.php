@@ -73,9 +73,24 @@ if (!function_exists('custom_theme_support')) :
 
   function wp_nav_menu_objects($items, $args)
   {
-    if ($args->theme_location == 'header-right') {
-      // loop
-      $items .= '<li class="menu-item lang"><a href="/en/page/about">EN</a></li>';
+    $settings = array(
+      'dropdown' => 0,
+      'show_names' => 1,
+      'display_names_as' => 'slug',
+      'show_flags' => 0,
+      'hide_if_empty' => 0,
+      'force_home' => 0,
+      'echo' => 0,
+      'hide_if_no_translation' => 0,
+      'hide_current'=> 1,
+      'post_id' => null,
+      'raw' => 0
+    );
+    if ($args->theme_location == 'header-right' || $args->theme_location == 'footer') {
+      if (function_exists('pll_the_languages')) {
+        $lang = pll_the_languages($settings);
+      }
+      $items .= $lang ?: '';
     }
     // return
     return $items;

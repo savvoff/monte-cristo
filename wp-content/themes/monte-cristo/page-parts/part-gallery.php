@@ -9,18 +9,11 @@
 ?>
 <div class="swiper<?php esc_attr_e($args['classes']); ?>">
   <div id="lightgallery" class="swiper-wrapper">
-    <a href="//placeimg.com/1920/650" class="swiper-slide">
-      <img class="swiper-lazy w-100 h-100" data-src="//placeimg.com/1920/650" alt="">
-      <div class="swiper-lazy-preloader"></div>
-    </a>
-    <a href="//placeimg.com/1920/650" class="swiper-slide">
-      <img class="swiper-lazy w-100 h-100" data-src="//placeimg.com/1920/650" alt="">
-      <div class="swiper-lazy-preloader"></div>
-    </a>
-    <a href="//placeimg.com/1920/650" class="swiper-slide">
-      <img class="swiper-lazy w-100 h-100" data-src="//placeimg.com/1920/650" alt="">
-      <div class="swiper-lazy-preloader"></div>
-    </a>
+    <?php foreach ($args['slides'] as $slide): ?>
+      <a href="<?php esc_attr_e($slide['url']); ?>" class="swiper-slide">
+        <img class="w-100 h-100" data-src="<?php esc_attr_e($slide['sizes']['large']); ?>" data-placeholder-background="dimgray" alt="<?php esc_attr_e($slide['caption']); ?>">
+      </a>
+    <?php endforeach; ?>
   </div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>

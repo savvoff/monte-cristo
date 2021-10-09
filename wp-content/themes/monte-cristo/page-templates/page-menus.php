@@ -9,55 +9,66 @@ get_header();
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12">
-        <article class="text-uppercase bg-white py-4 py-xl-5">
-          <h1 class="page-section__title h2 text-reset text-center">Lorem, ipsum.</h1>
+        <article class="text-uppercase bg-white py-4 py-xl-6">
+        <h1 class="page-section__title h2 text-reset text-center"><?php the_title(); ?></h1>
+          <?php $thumb = get_the_post_thumbnail_url();
+          if ($thumb): ?>
           <figure class="px-4">
-            <img class="img-fluid border border-middle border-15" src="//placehold.it/1280x640" alt="">
+            <img class="img-fluid border border-middle border-15" src="<?php echo esc_url($thumb); ?>" alt="<?php the_title(); ?>">
+            <?php $caption = get_post(get_post_thumbnail_id())->post_excerpt;
+            if ($caption): ?>
             <figcaption class="text-gray w-75 py-4 mx-auto">
               <small>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Harum voluptas saepe, fugiat molestias temporibus obcaecati! Necessitatibus incidunt quia enim quidem voluptatibus porro laudantium adipisci est ipsa? Eum atque harum corporis.
-            </small>
+                <?php echo $caption; ?>
+              </small>
             </figcaption>
+            <?php endif; ?>
           </figure>
+          <?php endif; ?>
+          <?php if (get_field('menu')): ?>
           <table class="table table-hover w-75 mx-auto">
+            <?php foreach (get_field('menu') as $idx => $row):
+            if (!$idx): ?>
             <thead>
+              <tr>
+                <?php foreach ($row['items'] as $column): ?>
+                <th scope="col"><?php echo $column['content']; ?></th>
+                <?php endforeach; ?>
+              </tr>
+            </thead>
+            <tbody>
+            <?php else: ?>
             <tr>
-              <th scope="col">№</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
+              <?php foreach ($row['items'] as $column): ?>
+              <th scope="col"><?php echo $column['content']; ?></th>
+              <?php endforeach; ?>
             </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            <?php endif; endforeach; ?>
           </tbody>
         </table>
+        <?php endif; ?>
       </div>
       <div class="col-12">
         <div class="py-4 py-lg-6">
-          <h2 class="page-section__title is-inverted text-center">Lorem, ipsum.</h2>
+          <h2 class="page-section__title is-inverted text-center"><?php the_field('text_above_news', 'option') ?></h2>
           <div class="row g-0">
           <?php
-          for ($i = 0; $i < 3; $i++) {
+          $args = array(
+            'numberposts' => -1,
+            'post_type'   => 'post'
+          );
+          $posts = get_posts($args);
+          foreach ($posts as $post) {
+            setup_postdata($post);
             get_template_part('page-parts/part', 'card', array(
-              'title' => 'Lorem ipsum dolor sit amet consectetur.',
-              'subtitle' => 'Lorem ipsum'
+              'title' => get_the_title(),
+              'subtitle' => get_the_excerpt(),
+              'img' => get_the_post_thumbnail_url(),
+              'link' => get_permalink()
             ));
-          } ?>
+          }
+          wp_reset_postdata(); ?>
+          </div>
           </div>
         </div>
       </div>

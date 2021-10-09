@@ -1,21 +1,18 @@
 article,
 .article {
   line-height: $line-height-lg;
-  // h1,
-  // h2,
-  // h3,
-  // h4,
-  // h5,
-  // h6 {
-  //   color: $primary;
-  //   line-height: $line-height-lg;
-  //   margin-bottom: $spacer;
-  // }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
   p {
     max-width: 100%;
     padding: 0 $spacer * 1.5;
     margin: 0 auto;
     margin-bottom: $spacer;
+    color: $body-bg;
     @include media-breakpoint-up(lg) {
       max-width: 85%;
     }

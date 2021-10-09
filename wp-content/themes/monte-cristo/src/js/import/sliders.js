@@ -1,6 +1,6 @@
 import { options } from "./options";
-import Swiper, { Autoplay, Pagination, Navigation, Lazy, EffectFade } from "swiper";
-Swiper.use([Autoplay, Pagination, Navigation, Lazy, EffectFade]);
+import Swiper, { Autoplay, Pagination, Navigation, EffectFade } from "swiper";
+Swiper.use([Autoplay, Pagination, Navigation, EffectFade]);
 
 // Sliders
 if ($(".hero-slider").length) {

@@ -21,22 +21,13 @@ export const options = {
       autoplay: true,
       fadeEffect: {
         crossFade: true
-      },
-      preloadImages: false,
-      // Enable lazy loading
-      lazy: {
-        loadPrevNext: true
-      },
+      }
     },
     gallery: {
       speed: 600,
       slidesPerView: 1,
       centeredSlides: true,
       spaceBetween: 30,
-      preloadImages: false,
-      lazy: {
-        loadPrevNext: true
-      },
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",

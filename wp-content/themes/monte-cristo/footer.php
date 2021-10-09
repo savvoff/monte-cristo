@@ -1,4 +1,4 @@
-  <footer class="page-footer py-4 pt-lg-6">
+  <footer class="site-footer py-4 pt-lg-6">
     <div class="container">
       <div class="row mb-5">
         <div class="col-12 col-lg-5">
@@ -28,15 +28,13 @@
         </div>
       </div>
       <div class="row">
-        <ul class="d-flex flex-wrap justify-content-around list-unstyled text-uppercase px-5">
-          <li class="menu-item"><a href="/restaurant">Рестораны</a></li>
-          <li class="menu-item"><a href="/page/about">О компании</a></li>
-          <li class="menu-item"><a href="/news">Новости</a></li>
-          <li class="menu-item"><a href="https://delivery.rappoport.restaurant/" target="_blank">Доставка</a></li>
-          <li class="menu-item"><a href="/media">СМИ</a></li>
-          <li class="menu-item"><a href="/site/contact">Контакты</a></li>
-          <li class="menu-item lang"><a href="/en/page/about">EN</a></li>
-        </ul>
+      <?php if (has_nav_menu('footer')) :
+          wp_nav_menu([
+            'depth' => 1,
+            'theme_location' => 'footer',
+            'container' => null,
+            'items_wrap' => '<ul class="d-flex flex-wrap justify-content-around list-unstyled text-uppercase px-5">%3$s</ul>']);
+          endif; ?>
       </div>
     </div>
   </footer>

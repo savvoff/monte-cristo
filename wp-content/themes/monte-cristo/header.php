@@ -51,7 +51,7 @@
         <div class="menu menu-center mx-3">
           <div class="logo p-3">
             <a href="<?php echo home_url('/'); ?>">
-              <?php $logo = get_field('logo', 'option') ?: THEME_URI . '/dist/img/logo.svg'; ?>
+              <?php $logo = get_field('header', 'option')['logo'] ?: THEME_URI . '/dist/img/logo.svg'; ?>
               <img class="img-fluid" src="<?php echo $logo; ?>" alt="<?php echo bloginfo('name'); ?>">
             </a>
           </div>
