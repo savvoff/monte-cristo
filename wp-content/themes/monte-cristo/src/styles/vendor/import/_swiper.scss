@@ -67,6 +67,9 @@ $themeColor: $secondary !default;
   }
   &__title {
     @include rfs(rem-calc(90px));
+    @include media-breakpoint-down(md) {
+      @include rfs(rem-calc(60px));
+    }
   }
 }
 .gallery-slider {

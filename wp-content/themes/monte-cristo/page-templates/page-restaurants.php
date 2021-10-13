@@ -54,6 +54,19 @@ get_header();
       </div>
     </div>
   </div>
+  <?php if (get_field('global_gallery')): ?>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-12 bg-lighten-dark py-5">
+        <?php
+          get_template_part('page-parts/part', 'gallery', array(
+            'slides' => get_field('global_gallery')
+          ));
+        ?>
+      </div>
+    </div>
+  </div>
+  <?php endif; ?>
 </section>
 
 <?php get_footer(); ?>

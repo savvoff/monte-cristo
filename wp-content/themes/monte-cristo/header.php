@@ -46,7 +46,7 @@
               'depth' => 1,
               'theme_location' => 'header-left',
               'container' => null,
-              'items_wrap' => '<ul class="list-unstyled menu-left mb-0">%3$s</ul>']);
+              'items_wrap' => '<ul class="list-unstyled menu-left text-lg-end m-0">%3$s</ul>']);
            endif; ?>
         <div class="menu menu-center mx-3">
           <div class="logo p-3">
@@ -61,7 +61,7 @@
             'depth' => 1,
             'theme_location' => 'header-right',
             'container' => null,
-            'items_wrap' => '<ul class="list-unstyled menu-right mb-0">%3$s</ul>']);
+            'items_wrap' => '<ul class="list-unstyled menu-right text-lg-start m-0">%3$s</ul>']);
           endif; ?>
       </nav>
       <div class="scroll-down d-block d-lg-none mt-n4">

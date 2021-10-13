@@ -8,7 +8,7 @@ get_header();
 <section class="page-section page-default">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-12">
+      <div class="col-12 col-lg-10">
         <article class="text-uppercase bg-white py-4 py-xl-6">
         <h1 class="page-section__title h2 text-reset text-center"><?php the_title(); ?></h1>
           <?php $thumb = get_the_post_thumbnail_url();
@@ -26,8 +26,9 @@ get_header();
           </figure>
           <?php endif; ?>
           <?php if (get_field('menus')):
+             printf('<a class="d-inline-block h3 fw-normal text-secondary px-3 mb-5 mx-3 mx-lg-5" href="#drinks">%s</a>', get_field('text_to_drinks', 'option'));
              foreach ((array)get_field('menus') as $menu): ?>
-            <div class="table-responsive mx-3 mx-lg-5">
+            <div <?php echo $menu['separator'] ? 'id="drinks"' : ''; ?>class="table-responsive<?php echo $menu['separator'] ? ' border-top border-secondary mt-4 pt-4' : ''; ?> mx-3 mx-lg-5">
               <table class="table table-borderless">
                 <?php foreach ((array)$menu['menu'] as $idx => $row):
                 if (!$idx): ?>

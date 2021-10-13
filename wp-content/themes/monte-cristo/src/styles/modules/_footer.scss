@@ -6,6 +6,11 @@
     i {
       @include rfs($h2-font-size);
     }
+    & + div a {
+      text-decoration: underline;
+      text-decoration-color: $gold;
+      text-underline-offset: 3px;
+    }
   }
   .menu, .lang {
     &-item {
@@ -20,8 +25,8 @@
     cursor: pointer;
     bottom: -150px;
     right: $spacer;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     font-weight: 900;
     background-color: $secondary;
     border: $border-width solid $light;
