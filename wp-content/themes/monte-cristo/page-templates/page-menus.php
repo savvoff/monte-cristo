@@ -76,6 +76,27 @@ get_header();
         </div>
       </div>
     </div>
+    <?php if (get_field('global_gallery')): ?>
+    <div class="container">
+      <div id="gallery" class="row justify-content-center py-5">
+        <div class="col-12 col-lg-10 text-center">
+          <h2 class="page-section__title is-inverted"><?php the_field('global_gallery_title'); ?></h2>
+          <p class="fw-normal text-white lh-lg w-75 mx-auto"><small><?php the_field('global_gallery_caption'); ?></small></p>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid p-0">
+      <div class="row">
+        <div class="col-12 bg-lighten-dark py-5">
+          <?php
+            get_template_part('page-parts/part', 'gallery', array(
+              'slides' => get_field('global_gallery')
+            ));
+          ?>
+        </div>
+      </div>
+    </div>
+    <?php endif; ?>
   </div>
 </section>
 

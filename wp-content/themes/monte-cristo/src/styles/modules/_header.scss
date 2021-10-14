@@ -83,7 +83,8 @@
   }
 }
 
-.current-menu-item a {
+.current-menu-item a,
+.current-page-ancestor a {
   color: $link-hover-color;
 }
 
