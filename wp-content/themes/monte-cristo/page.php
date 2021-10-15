@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10">
-        <article class="text-uppercase bg-white py-4 py-xl-6">
+        <article class="bg-white py-4 py-xl-6">
           <h1 class="page-section__title h2 text-reset text-center"><?php the_title(); ?></h1>
           <?php $thumb = get_the_post_thumbnail_url();
           if ($thumb): ?>
@@ -15,9 +15,7 @@
             <?php $caption = get_post(get_post_thumbnail_id())->post_excerpt;
             if ($caption): ?>
             <figcaption class="text-gray w-75 mb-4 mx-auto">
-              <small>
                 <?php echo $caption; ?>
-              </small>
             </figcaption>
             <?php endif; ?>
           </figure>
@@ -53,6 +51,14 @@
     </div>
   </div>
   <?php if (get_field('global_gallery')): ?>
+  <div class="container">
+    <div id="gallery" class="row justify-content-center py-5">
+      <div class="col-12 col-lg-10 text-center">
+        <h2 class="page-section__title is-inverted"><?php the_field('global_gallery_title'); ?></h2>
+        <p class="h5 fw-normal text-white lh-lg w-75 mx-auto"><?php the_field('global_gallery_caption'); ?></p>
+      </div>
+    </div>
+  </div>
   <div class="container-fluid p-0">
     <div class="row">
       <div class="col-12 bg-lighten-dark py-5">

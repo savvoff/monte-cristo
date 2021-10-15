@@ -62,7 +62,7 @@ get_header();
     <div id="gallery" class="row justify-content-center py-5">
       <div class="col-12 col-lg-10 text-center">
         <h2 class="page-section__title is-inverted"><?php the_field('gallery_title'); ?></h2>
-        <p class="fw-normal lh-lg w-75 mx-auto"><small><?php the_field('gallery_caption'); ?></small></p>
+        <p class="h5 fw-normal lh-lg w-75 mx-auto"><?php the_field('gallery_caption'); ?></p>
       </div>
     </div>
   </div>

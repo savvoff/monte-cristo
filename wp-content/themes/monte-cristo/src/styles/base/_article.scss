@@ -25,6 +25,12 @@ article,
   h6 {
     margin-top: $spacer * 2;
   }
+  p {
+    @include rfs(16px);
+    @include media-breakpoint-up(md) {
+      @include rfs($h4-font-size);
+    }
+  }
   // ol,
   // ul {
   //   padding-left: $spacer * 2;
