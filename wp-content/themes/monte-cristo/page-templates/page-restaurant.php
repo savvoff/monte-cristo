@@ -39,7 +39,7 @@ get_header();
                 <!-- <img class="icon-contact me-3" src="<?php //esc_attr_e($advantage['image']['url']); ?>" alt="<?php //esc_attr_e($advantage['image']['alt']); ?>"> -->
                 <span class="text-secondary m-1"><?php echo $advantage['icon']; ?></span>
                 <div class="py-1 px-2">
-                  <h5 class="fw-normal text-uppercase"><?php esc_html_e($advantage['title']); ?></h5>
+                  <p class="h5 fw-normal text-uppercase"><?php esc_html_e($advantage['title']); ?></p>
                   <p class="text-gray m-0"><?php esc_html_e($advantage['desc']); ?></p>
                 </div>
               </div>
