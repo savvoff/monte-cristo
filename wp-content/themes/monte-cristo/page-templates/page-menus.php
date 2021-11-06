@@ -47,30 +47,6 @@ get_header();
             </table>
           </div>
         <?php endforeach; endif; ?>
-      </div>
-      <div class="col-12">
-        <div class="py-5 py-lg-6">
-          <h2 class="page-section__title is-inverted text-center"><?php the_field('text_above_news', 'option') ?></h2>
-          <div class="row g-0">
-          <?php
-          $args = array(
-            'numberposts' => -1,
-            'post_type'   => 'post'
-          );
-          $posts = get_posts($args);
-          foreach ($posts as $post) {
-            setup_postdata($post);
-            get_template_part('page-parts/part', 'card', array(
-              'title' => get_the_title(),
-              'subtitle' => get_the_excerpt(),
-              'categories' => get_categories(),
-              'img' => get_the_post_thumbnail_url(),
-              'link' => get_permalink()
-            ));
-          }
-          wp_reset_postdata(); ?>
-          </div>
-          </div>
         </div>
       </div>
     </div>

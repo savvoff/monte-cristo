@@ -32,7 +32,15 @@ get_header();
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10 bg-lighten-dark">
         <div class="p-3">
-          <div class="row border border-white px-3 px-lg-5 pt-5 mb-3">
+          <div id="about" class="row border border-white px-3 px-lg-6 py-5 mb-3">
+            <div class="col-12">
+              <h2 class="page-section__title is-inverted text-center"><?php the_field('content_title'); ?></h2>
+              <article class="text-gray">
+                <?php the_content(); ?>
+              </article>
+            </div>
+          </div>
+          <div class="row border border-white px-3 px-lg-5 pt-5">
             <?php foreach ((array)get_field('advantages') as $advantage): ?>
             <div class="col-12 col-sm-6 col-lg-4">
               <div class="d-flex mb-5">
@@ -40,19 +48,11 @@ get_header();
                 <span class="text-secondary m-1"><?php echo $advantage['icon']; ?></span>
                 <div class="py-1 px-2">
                   <p class="h5 fw-normal text-uppercase"><?php esc_html_e($advantage['title']); ?></p>
-                  <p class="text-gray m-0"><?php esc_html_e($advantage['desc']); ?></p>
+                  <p class="text-gray m-0"><?php print($advantage['desc']); ?></p>
                 </div>
               </div>
             </div>
             <?php endforeach; ?>
-          </div>
-          <div id="about" class="row border border-white px-3 px-lg-6 py-5">
-            <div class="col-12">
-              <h2 class="page-section__title is-inverted text-center"><?php the_field('content_title'); ?></h2>
-              <article class="text-gray">
-                <?php the_content(); ?>
-              </article>
-            </div>
           </div>
         </div>
       </div>

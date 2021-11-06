@@ -10,7 +10,7 @@
             </span>
             <div class="text-uppercase ms-4">
               <p class="h3 lh-sm"><?php echo $contact_left['title']; ?></p>
-              <a class="stretched-link lh-lg py-2" href="<?php echo $contact_left['link']['url']; ?>" rel="noindex, nofollow" target="<?php echo $contact_left['link']['target'] ?: '_self' ?>"><?php echo $contact_left['link']['title']; ?></a>
+              <a class="h5 fw-normal stretched-link lh-lg py-2" href="<?php echo $contact_left['link']['url']; ?>" rel="noindex, nofollow" target="<?php echo $contact_left['link']['target'] ?: '_self' ?>"><?php echo $contact_left['link']['title']; ?></a>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
             </span>
             <div class="text-uppercase ms-4">
               <p class="h3 lh-sm"><?php echo $contact_right['title']; ?></p>
-              <a class="stretched-link lh-lg py-2" href="<?php echo $contact_right['link']['url']; ?>" rel="noindex, nofollow" target="<?php echo $contact_right['link']['target'] ?: '_self' ?>"><?php echo $contact_right['link']['title']; ?></a>
+              <a class="h5 fw-normal stretched-link lh-lg py-2" href="<?php echo $contact_right['link']['url']; ?>" rel="noindex, nofollow" target="<?php echo $contact_right['link']['target'] ?: '_self' ?>"><?php echo $contact_right['link']['title']; ?></a>
             </div>
           </div>
         </div>
