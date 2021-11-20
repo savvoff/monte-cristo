@@ -23,6 +23,6 @@
     }
     //echo $args['subtitle'];
     ?></p>
-    <a class="btn btn-link btn-outline-dark stretched-link" href="<?php echo esc_url($args['link']); ?>"><?php the_field('read_more', 'option'); ?></a>
+    <a class="btn btn-link btn-outline-main stretched-link" href="<?php echo esc_url($args['link']); ?>"><?php the_field('read_more', 'option'); ?></a>
   </div>
 </div>

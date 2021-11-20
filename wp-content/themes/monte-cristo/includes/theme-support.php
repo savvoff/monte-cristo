@@ -91,6 +91,11 @@ if (!function_exists('custom_theme_support')) :
         $lang = pll_the_languages($settings);
       }
       $items .= $lang ?: '';
+
+      $header = get_field('header', 'option');
+      if ($header['music'] && $args->theme_location != 'footer') {
+        $items .= '<li class="btn-play menu-item mx-3" data-music="' . $header['music'] . '"><button class="btn btn-light d-flex p-0 mx-auto"><i class="fas fa-sm fa-play m-auto" aria-hidden="true"></i></button></li>';
+      }
     }
     // return
     return $items;

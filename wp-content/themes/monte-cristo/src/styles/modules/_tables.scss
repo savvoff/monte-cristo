@@ -44,6 +44,7 @@
 
   > thead {
     vertical-align: bottom;
+    color: $gold;
     @include rfs(rem-calc(24px));
   }
 

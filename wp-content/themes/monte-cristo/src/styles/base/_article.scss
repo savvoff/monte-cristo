@@ -12,7 +12,7 @@ article,
     padding: 0 $spacer * 1.5;
     margin: 0 auto;
     margin-bottom: $spacer;
-    color: $body-bg;
+    color: $gray-900;
     @include media-breakpoint-up(lg) {
       max-width: 85%;
     }
@@ -23,6 +23,7 @@ article,
   h4,
   h5,
   h6 {
+    color: $gold;
     margin-top: $spacer * 2;
   }
   p {

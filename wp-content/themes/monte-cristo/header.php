@@ -7,7 +7,6 @@
   <meta name="theme-color" content="#fff">
   <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <title><?php bloginfo('name'); ?><?php wp_title() ?></title>
   <link rel="shortcut icon" href="<?php echo THEME_URI; ?>/dist/img/favicons/favicon.ico" type="image/x-icon">
   <link rel="icon" sizes="16x16" href="<?php echo THEME_URI; ?>/dist/img/favicons/favicon-16x16.png" type="image/png">
   <link rel="icon" sizes="32x32" href="<?php echo THEME_URI; ?>/dist/img/favicons/favicon-32x32.png" type="image/png">
@@ -64,8 +63,7 @@
             'items_wrap' => '<ul class="list-unstyled menu-right text-lg-start m-0">%3$s</ul>']);
           endif; ?>
       </nav>
-      <div class="scroll-down d-block d-lg-none mt-n4">
-        <?php _e('Scroll'); ?>
+      <div class="scroll-down d-block d-lg-none mt-4">
         <div class="icon-scroll"></div>
       </div>
     </div>

@@ -11,6 +11,7 @@ import {
   // selector,
   // openTab,
   showMenu,
+  enableSound,
   // setProgress,
   // setAspectRatioVideo,
   // Modal,
@@ -68,6 +69,7 @@ class App {
       // End Loader prod
       // setProgress();
       // scrollHeader();
+      enableSound();
       console.log("App init\n");
     });
 

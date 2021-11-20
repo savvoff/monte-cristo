@@ -9,7 +9,8 @@
     position: relative;
     overflow: hidden;
     &__title {
-      letter-spacing: 7.4px;
+      color: $gold;
+      // letter-spacing: 7.4px;
       &::after {
         content: "";
         display: block;
@@ -26,12 +27,12 @@
     }
   }
   &-default {
-    color: $body-bg;
+    color: $gold;
   }
   &-restaurant, &-news {
     margin-top: -8rem;
     article * {
-      color: $gray-500;
+      color: $white;
     }
   }
 }

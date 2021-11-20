@@ -278,6 +278,40 @@ export class Modal {
     $elements.each((i, el) => this.render(el));
   }
 }
+
+export function enableSound() {
+  const $btnMusic = $(".btn-play");
+  if (typeof window.Audio !== "undefined") {
+    const audio = new Audio();
+    const isPlay = JSON.parse(localStorage.getItem("is_play"));
+    audio.src = $btnMusic.data("music");
+    audio.volume = 0.1;
+    switch (isPlay) {
+      case true:
+        $btnMusic.find("i").toggleClass('fa-play fa-pause');
+        audio.play();
+        break;
+      case null:
+      default:
+        audio.pause();
+        break;
+    }
+    $btnMusic.on("click", () => {
+      if ($btnMusic.find("i").hasClass("fa-play")) {
+        $btnMusic.find("i").toggleClass('fa-play fa-pause');
+        audio.play();
+        localStorage.setItem("is_play", true);
+      } else {
+        $btnMusic.find("i").toggleClass("fa-play fa-pause");
+        audio.pause();
+        localStorage.setItem("is_play", false);
+      }
+    });
+  } else {
+    $btnMusic.remove();
+  }
+}
+
 // Coundown
 export function countdown(cls) {
   if (!$(cls).length) return;
